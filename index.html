@@ -1,304 +1,717 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>Earn Online with Gain Wave App | Earn Through Referrals</title>
-
-<meta name="description" content="Gain Wave App helps you earn online through a powerful 5-level referral system.">
-<meta name="robots" content="index, follow">
-
-<meta name="google-adsense-account" content="ca-pub-8388202384591110">
-<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8388202384591110"
-crossorigin="anonymous"></script>
-
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-
-<style>
-*{margin:0;padding:0;box-sizing:border-box;font-family:Segoe UI,Tahoma,Verdana,sans-serif}
-body{background:#008080;color:#333;line-height:1.6}
-.container{max-width:1200px;margin:auto;padding:0 20px}
-
-/* HEADER */
-header{background:linear-gradient(to right,#FFD700,#008080);color:#fff;padding:15px 0}
-.header-content{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap}
-.logo{font-size:26px;font-weight:bold}
-nav ul{display:flex;list-style:none;gap:20px}
-nav a{color:white;text-decoration:none;font-weight:500}
-
-/* HERO */
-.hero{
-padding:90px 20px;
-text-align:center;
-color:white;
-background:linear-gradient(rgba(0,128,128,.85),rgba(0,128,128,.85)),
-url('https://images.unsplash.com/photo-1535016120720-40c646be5580') center/cover no-repeat
-}
-.hero h1{font-size:42px}
-.hero p{margin:15px 0 30px;font-size:18px}
-.download-btn-large{
-background:white;
-color:#008080;
-padding:14px 30px;
-border-radius:30px;
-font-weight:bold;
-text-decoration:none;
-display:inline-block
-}
-
-/* SECTIONS */
-section{padding:80px 20px}
-.section-title{text-align:center;margin-bottom:50px}
-.section-title h2{color:#008080;font-size:34px}
-
-/* FEATURES */
-.features{background:#EBFEFE}
-.features-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:30px}
-.feature-card{
-background:#fff;
-padding:30px;
-border-radius:12px;
-text-align:center;
-box-shadow:0 10px 25px rgba(0,0,0,.1)
-}
-.feature-icon{font-size:40px;color:#008080;margin-bottom:15px}
-
-/* REFERRAL */
-.referral{background:linear-gradient(to right,#1e3c72,#2a5298);color:#fff}
-.referral-flow{display:flex;justify-content:center;flex-wrap:wrap;gap:15px;margin-bottom:40px}
-.level-circle{
-width:90px;height:90px;border-radius:50%;
-display:flex;flex-direction:column;justify-content:center;align-items:center;
-background:#FFD700;color:#000;font-weight:bold
-}
-.level-circle span{font-size:14px}
-
-.referral-table{
-max-width:700px;margin:auto;background:#fff;color:#000;
-border-radius:12px;overflow:hidden
-}
-.referral-table table{width:100%;border-collapse:collapse}
-.referral-table th,.referral-table td{
-padding:15px;text-align:center;border-bottom:1px solid #ddd
-}
-.referral-table th{background:#008080;color:white}
-
-/* VIDEO */
-.video-section{background:#d6f5f5}
-.video-wrapper{
-position:relative;
-max-width:900px;
-margin:auto;
-border-radius:16px;
-overflow:hidden;
-box-shadow:0 12px 30px rgba(0,0,0,.2)
-}
-.video-wrapper video{width:100%;display:block}
-
-/* MUTE BUTTON */
-.mute-btn{
-position:absolute;
-bottom:15px;
-right:15px;
-background:rgba(0,0,0,0.7);
-color:white;
-border:none;
-border-radius:50%;
-width:45px;
-height:45px;
-cursor:pointer;
-font-size:18px;
-display:flex;
-align-items:center;
-justify-content:center
-}
-.mute-btn:hover{background:rgba(0,0,0,0.9)}
-
-/* DOWNLOAD */
-.download{
-background:linear-gradient(to right,#008080,#20b2aa);
-color:white;
-text-align:center
-}
-
-/* FOOTER */
-footer{background:#2c5282;color:white;padding:40px 20px}
-.footer-content{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:30px}
-.social-icons a{
-background:#008080;
-width:40px;
-height:40px;
-border-radius:50%;
-display:inline-flex;
-align-items:center;
-justify-content:center;
-color:white;
-margin-right:10px
-}
-.copyright{text-align:center;margin-top:30px;font-size:14px}
-</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>Earn Online with Gain Wave App | Earn Through Referrals</title>
+    <meta name="description" content="Gain Wave App helps you earn online through a powerful 5-level referral system.">
+    <meta name="robots" content="index, follow">
+    <meta name="google-adsense-account" content="ca-pub-8388202384591110">
+    
+    <!-- Google Ads -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8388202384591110" crossorigin="anonymous"></script>
+    
+    <!-- External CSS -->
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        /* Page-specific hero background */
+        .hero {
+            background: linear-gradient(rgba(0, 128, 128, 0.85), rgba(0, 128, 128, 0.85)), url('https://images.unsplash.com/photo-1535016120720-40c646be5580') center/cover no-repeat;
+        }
+        
+        /* Referral System Section Styles for index.html */
+        .referral {
+            background: linear-gradient(to right, #1e3c72, #2a5298);
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .referral::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255, 215, 0, 0.1) 0%, transparent 70%);
+            animation: pulse 4s ease-in-out infinite;
+        }
+        
+        .referral-table {
+            overflow-x: auto;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+            margin: 40px auto;
+            max-width: 800px;
+            animation: slideInRight 0.8s ease;
+        }
+        
+        .referral-table table {
+            width: 100%;
+            border-collapse: collapse;
+            min-width: 500px;
+        }
+        
+        .referral-table th {
+            background: linear-gradient(to right, #008080, #20b2aa);
+            color: white;
+            font-weight: 700;
+            font-size: 1.1rem;
+            padding: 20px;
+            text-align: center;
+            border-bottom: 3px solid #FFD700;
+        }
+        
+        .referral-table td {
+            padding: 18px;
+            text-align: center;
+            border-bottom: 1px solid #eee;
+            color: #333;
+            font-weight: 500;
+            font-size: 1rem;
+        }
+        
+        .referral-table tr {
+            transition: all 0.3s ease;
+        }
+        
+        .referral-table tr:hover {
+            background: linear-gradient(to right, rgba(0, 128, 128, 0.05), rgba(32, 178, 170, 0.05));
+            transform: scale(1.01);
+        }
+        
+        .referral-table td:last-child {
+            color: #008080;
+            font-weight: 700;
+            font-size: 1.1rem;
+            background: rgba(0, 128, 128, 0.05);
+        }
+        
+        .referral-table td:nth-child(2) {
+            color: #2a5298;
+            font-weight: 600;
+        }
+        
+        .referral-table td:nth-child(1) {
+            font-weight: 700;
+            color: #1e3c72;
+            background: rgba(255, 215, 0, 0.05);
+        }
+        
+        /* Referral circles for index.html */
+        .referral-flow {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 20px;
+            margin: 50px 0;
+            padding: 20px;
+        }
+        
+        .level-circle {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background: linear-gradient(145deg, #FFD700, #ffae00);
+            color: #000;
+            font-weight: 800;
+            font-size: 1.3rem;
+            box-shadow: 0 10px 30px rgba(255, 215, 0, 0.4);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            animation: fadeIn 0.6s ease;
+            border: 3px solid white;
+        }
+        
+        .level-circle::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+            transform: rotate(45deg);
+            animation: shine 3s infinite linear;
+        }
+        
+        .level-circle:hover {
+            transform: scale(1.1) rotate(5deg);
+            box-shadow: 0 15px 40px rgba(255, 215, 0, 0.6);
+        }
+        
+        .level-circle span {
+            font-size: 0.9rem;
+            opacity: 0.9;
+            font-weight: 600;
+            margin-top: 5px;
+        }
+        
+        /* Section title for referral section in index.html */
+        .referral .section-title h2 {
+            color: white;
+            background: linear-gradient(to right, #FFD700, #ffae00);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            display: inline-block;
+            margin-bottom: 15px;
+        }
+        
+        .referral .section-title p {
+            color: rgba(255, 255, 255, 0.9);
+            font-size: 1.2rem;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        /* Features Section Enhancement */
+        .features {
+            background: #EBFEFE;
+        }
+        
+        .feature-card {
+            background: white;
+            padding: 35px;
+            border-radius: 12px;
+            text-align: center;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            border-top: 5px solid #008080;
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+        }
+        
+        .feature-icon {
+            font-size: 48px;
+            color: #008080;
+            margin-bottom: 20px;
+            background: linear-gradient(145deg, rgba(0, 128, 128, 0.1), rgba(255, 215, 0, 0.1));
+            width: 80px;
+            height: 80px;
+            line-height: 80px;
+            border-radius: 50%;
+            display: inline-block;
+            animation: float 3s ease-in-out infinite;
+        }
+        
+        /* Video Section */
+        .video-section {
+            background: #d6f5f5;
+        }
+        
+        .video-wrapper {
+            position: relative;
+            max-width: 900px;
+            margin: auto;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+            animation: fadeIn 1s ease;
+        }
+        
+        .mute-btn {
+            position: absolute;
+            bottom: 20px;
+            right: 20px;
+            background: rgba(0, 0, 0, 0.7);
+            color: white;
+            border: none;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            font-size: 20px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            z-index: 10;
+        }
+        
+        .mute-btn:hover {
+            background: rgba(0, 0, 0, 0.9);
+            transform: scale(1.1);
+        }
+        
+        /* Animations */
+        @keyframes pulse {
+            0%, 100% { opacity: 0.5; }
+            50% { opacity: 1; }
+        }
+        
+        @keyframes shine {
+            0% { transform: translateX(-100%) rotate(45deg); }
+            100% { transform: translateX(100%) rotate(45deg); }
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        @keyframes slideInRight {
+            from { opacity: 0; transform: translateX(50px); }
+            to { opacity: 1; transform: translateX(0); }
+        }
+        
+        /* Mobile Responsive for index.html referral section */
+        @media (max-width: 768px) {
+            .level-circle {
+                width: 80px;
+                height: 80px;
+                font-size: 1.1rem;
+            }
+            
+            .level-circle span {
+                font-size: 0.8rem;
+            }
+            
+            .referral-table {
+                margin: 20px 0;
+            }
+            
+            .referral-table th,
+            .referral-table td {
+                padding: 15px 10px;
+                font-size: 0.9rem;
+            }
+            
+            .referral-table td:last-child {
+                font-size: 1rem;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .level-circle {
+                width: 70px;
+                height: 70px;
+                font-size: 1rem;
+            }
+            
+            .level-circle span {
+                font-size: 0.7rem;
+            }
+            
+            .referral-flow {
+                gap: 15px;
+                margin: 30px 0;
+            }
+            
+            .referral-table {
+                margin: 10px 0;
+            }
+            
+            .referral-table th,
+            .referral-table td {
+                padding: 12px 8px;
+                font-size: 0.85rem;
+            }
+        }
+    </style>
 </head>
-
 <body>
+    
+    <!-- Header -->
+    <header>
+        <div class="container header-content">
+            <div class="logo">Gain Wave App</div>
+            <button class="menu-toggle" id="menuToggle" aria-label="Toggle navigation">
+                <i class="fas fa-bars"></i>
+            </button>
+            <nav>
+                <ul id="navMenu">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="contact.html">Contact Us</a></li>
+                    <li><a href="referals.html">Referral System</a></li>
+                    <li><a href="https://whatsapp.com/channel/0029VbBnprPH5JLyxGDV0N0b" target="_blank" rel="noopener">Channel</a></li>
+                    <li><a href="https://web.gainwaveapp.com/auth/register?ref=WPM8R" target="_blank" rel="noopener">Create Account</a></li>
+                    <li><a href="https://web.gainwaveapp.com/auth/login" target="_blank" rel="noopener">Login</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
 
-<header>
-<div class="container header-content">
-<div class="logo">Gain Wave App</div>
-<nav>
-<ul>
-<li><a href="index.html">Home</a></li>
-<li><a href="about.html">About Us</a></li>
-<li><a href="contact.html">Contact Us</a></li>
-<li><a href="https://whatsapp.com/channel/0029VbBnprPH5JLyxGDV0N0b" target="_blank" rel="noopener noreferrer">Channel</a></li>
-<li><a href="https://web.gainwaveapp.com/auth/register?ref=WPM8R" target="_blank" rel="noopener noreferrer">Create Account</a></li>
-<li><a href="https://web.gainwaveapp.com/auth/login" target="_blank" rel="noopener noreferrer">Login</a></li>
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container hero-content">
+            <h1>Earn Through Referrals</h1>
+            <p>The best referral app to grow your income online</p>
+            <a href="https://drive.google.com/file/d/1COrTRArvelL6PXdgNr3Q8kMHKDiWijzx/view"
+               class="download-btn-large" target="_blank" rel="noopener">
+               Download Gain Wave App
+            </a>
+        </div>
+    </section>
 
-</ul>
-</nav>
-</div>
-</header>
+    <!-- Features Section -->
+    <section class="features">
+        <div class="container">
+            <div class="section-title">
+                <h2>Amazing Features</h2>
+                <p>Everything you need to succeed</p>
+            </div>
 
-<section class="hero">
-<div class="container">
-<h1>Earn Through Referrals</h1>
-<p>The best referral app to grow your income online</p>
-<a href="https://drive.google.com/file/d/1COrTRArvelL6PXdgNr3Q8kMHKDiWijzx/view"
-class="download-btn-large"
-target="_blank"
-rel="noopener noreferrer"
-aria-label="Download Gain Wave App">
-Download Gain Wave App
-</a>
-</div>
-</section>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon"><i class="fas fa-wallet"></i></div>
+                    <h3>Instant Earnings</h3>
+                    <p>Track your USDT earnings anytime in real-time</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon"><i class="fas fa-users"></i></div>
+                    <h3>5 Levels Income</h3>
+                    <p>Earn from up to 5 referral levels deep</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon"><i class="fas fa-chart-line"></i></div>
+                    <h3>Unlimited Growth</h3>
+                    <p>Build a global earning network with no limits</p>
+                </div>
+            </div>
+        </div>
+    </section>
 
-<section class="features">
-<div class="container">
-<div class="section-title">
-<h2>Amazing Features</h2>
-<p>Everything you need to succeed</p>
-</div>
+    <!-- Referral System Section - Updated to match referals.html -->
+    <section class="referral">
+        <div class="container">
+            <div class="section-title">
+                <h2>Referral Income System</h2>
+                <p>Earn up to <strong>20 USDT</strong> from one referral chain</p>
+            </div>
 
-<div class="features-grid">
-<div class="feature-card">
-<div class="feature-icon"><i class="fas fa-wallet"></i></div>
-<h3>Instant Earnings</h3>
-<p>Track your USDT earnings anytime</p>
-</div>
-<div class="feature-card">
-<div class="feature-icon"><i class="fas fa-users"></i></div>
-<h3>5 Levels Income</h3>
-<p>Earn from up to 5 referral levels</p>
-</div>
-<div class="feature-card">
-<div class="feature-icon"><i class="fas fa-chart-line"></i></div>
-<h3>Unlimited Growth</h3>
-<p>Build a global earning network</p>
-</div>
-</div>
-</div>
-</section>
+            <!-- Visual Referral Flow -->
+            <div class="referral-flow">
+                <div class="level-circle">A<br><span>10 USDT</span></div>
+                <div class="level-circle">B<br><span>5 USDT</span></div>
+                <div class="level-circle">C<br><span>3 USDT</span></div>
+                <div class="level-circle">D<br><span>1 USDT</span></div>
+                <div class="level-circle">E<br><span>1 USDT</span></div>
+            </div>
 
-<section class="referral">
-<div class="container">
-<div class="section-title">
-<h2>Referral Income System</h2>
-<p>Earn up to <strong>20 USDT</strong> from one referral chain</p>
-</div>
+            <!-- Referral Table -->
+            <div class="referral-table">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Level</th>
+                            <th>Referral Type</th>
+                            <th>Earnings</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>A</td>
+                            <td>Direct Referrals</td>
+                            <td>10 USDT</td>
+                        </tr>
+                        <tr>
+                            <td>B</td>
+                            <td>Invited by Level A</td>
+                            <td>5 USDT</td>
+                        </tr>
+                        <tr>
+                            <td>C</td>
+                            <td>Invited by Level B</td>
+                            <td>3 USDT</td>
+                        </tr>
+                        <tr>
+                            <td>D</td>
+                            <td>Invited by Level C</td>
+                            <td>1 USDT</td>
+                        </tr>
+                        <tr>
+                            <td>E</td>
+                            <td>Invited by Level D</td>
+                            <td>1 USDT</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            
+            <!-- Total Earnings Summary -->
+            <div style="text-align: center; margin: 40px 0; padding: 20px; background: rgba(255, 255, 255, 0.1); border-radius: 10px;">
+                <h3 style="color: #FFD700; margin-bottom: 10px;">Total Potential Earnings</h3>
+                <p style="font-size: 1.2rem; color: white;">
+                    <strong style="font-size: 2rem; color: #FFD700;">20 USDT</strong> per complete referral chain
+                </p>
+                <p style="color: rgba(255, 255, 255, 0.8); margin-top: 10px;">
+                    Earn from 5 levels of your network • Unlimited referrals • Instant payments
+                </p>
+            </div>
+            
+            <!-- Quick Activation Info -->
+            <div style="background: rgba(255, 215, 0, 0.1); border: 2px solid rgba(255, 215, 0, 0.3); border-radius: 10px; padding: 25px; margin: 30px 0; text-align: center;">
+                <h4 style="color: #FFD700; margin-bottom: 15px; display: flex; align-items: center; justify-content: center; gap: 10px;">
+                    <i class="fas fa-bolt"></i> Quick Start Guide
+                </h4>
+                <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 20px; margin-top: 20px;">
+                    <div style="background: white; padding: 15px 25px; border-radius: 8px; color: #333; font-weight: 600; box-shadow: 0 5px 15px rgba(0,0,0,0.1);">
+                        <i class="fas fa-user-plus" style="color: #008080; margin-right: 8px;"></i> 1. Register Free
+                    </div>
+                    <div style="background: white; padding: 15px 25px; border-radius: 8px; color: #333; font-weight: 600; box-shadow: 0 5px 15px rgba(0,0,0,0.1);">
+                        <i class="fas fa-key" style="color: #008080; margin-right: 8px;"></i> 2. Activate with 30 USDT
+                    </div>
+                    <div style="background: white; padding: 15px 25px; border-radius: 8px; color: #333; font-weight: 600; box-shadow: 0 5px 15px rgba(0,0,0,0.1);">
+                        <i class="fas fa-share-alt" style="color: #008080; margin-right: 8px;"></i> 3. Share & Earn
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-<div class="referral-flow">
-<div class="level-circle">A<br><span>10 USDT</span></div>
-<div class="level-circle">B<br><span>5 USDT</span></div>
-<div class="level-circle">C<br><span>3 USDT</span></div>
-<div class="level-circle">D<br><span>1 USDT</span></div>
-<div class="level-circle">E<br><span>1 USDT</span></div>
-</div>
+    <!-- Video Section -->
+    <section class="video-section">
+        <div class="container">
+            <div class="section-title">
+                <h2>How Gain Wave App Works</h2>
+                <p>Watch and learn how to earn through referrals</p>
+            </div>
 
-<div class="referral-table">
-<table>
-<tr><th>Level</th><th>Referral Type</th><th>Earnings</th></tr>
-<tr><td>A</td><td>Direct Referrals</td><td>10 USDT</td></tr>
-<tr><td>B</td><td>Invited by Level A</td><td>5 USDT</td></tr>
-<tr><td>C</td><td>Invited by Level B</td><td>3 USDT</td></tr>
-<tr><td>D</td><td>Invited by Level C</td><td>1 USDT</td></tr>
-<tr><td>E</td><td>Invited by Level D</td><td>1 USDT</td></tr>
-</table>
-</div>
-</div>
-</section>
+            <div class="video-wrapper">
+                <video id="gainVideo" autoplay muted loop playsinline>
+                    <source src="movie.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+                <button class="mute-btn" aria-label="Toggle mute">
+                    <i class="fas fa-volume-mute" id="muteIcon"></i>
+                </button>
+            </div>
+            
+            <!-- Video Description -->
+            <div style="max-width: 800px; margin: 40px auto 0; text-align: center; padding: 25px; background: white; border-radius: 12px; box-shadow: 0 10px 25px rgba(0,0,0,0.1);">
+                <h3 style="color: #008080; margin-bottom: 15px;">Start Your Earning Journey in 3 Easy Steps</h3>
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; margin-top: 25px;">
+                    <div>
+                        <div style="width: 50px; height: 50px; background: #008080; color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: 1.2rem; margin: 0 auto 15px;">1</div>
+                        <h4 style="color: #1e3c72; margin-bottom: 10px;">Download & Register</h4>
+                        <p style="color: #666;">Get the app and create your free account</p>
+                    </div>
+                    <div>
+                        <div style="width: 50px; height: 50px; background: #008080; color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: 1.2rem; margin: 0 auto 15px;">2</div>
+                        <h4 style="color: #1e3c72; margin-bottom: 10px;">Activate Account</h4>
+                        <p style="color: #666;">Deposit 30 USDT to activate all features</p>
+                    </div>
+                    <div>
+                        <div style="width: 50px; height: 50px; background: #008080; color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: 1.2rem; margin: 0 auto 15px;">3</div>
+                        <h4 style="color: #1e3c72; margin-bottom: 10px;">Share & Earn</h4>
+                        <p style="color: #666;">Share your referral link and earn from 5 levels</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-<!-- VIDEO SECTION -->
-<section class="video-section">
-<div class="container">
-<div class="section-title">
-<h2>How Gain Wave App Works</h2>
-<p>Watch and learn how to earn through referrals</p>
-</div>
+    <!-- Testimonials Section -->
+    <section class="features" style="background: #f8f9fa;">
+        <div class="container">
+            <div class="section-title">
+                <h2>Success Stories</h2>
+                <p>See what our users are saying</p>
+            </div>
+            
+            <div class="features-grid">
+                <div class="feature-card" style="text-align: left;">
+                    <div style="display: flex; align-items: center; margin-bottom: 20px;">
+                        <div style="width: 50px; height: 50px; background: #008080; color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: 1.2rem; margin-right: 15px;">JS</div>
+                        <div>
+                            <h4 style="color: #1e3c72; margin: 0;">John S.</h4>
+                            <p style="color: #666; font-size: 0.9rem;">Earning since March 2024</p>
+                        </div>
+                    </div>
+                    <p style="color: #555; font-style: italic; line-height: 1.6;">"I activated my account with 30 USDT and within a month, I've earned over 200 USDT from referrals. The 5-level system really works!"</p>
+                </div>
+                
+                <div class="feature-card" style="text-align: left;">
+                    <div style="display: flex; align-items: center; margin-bottom: 20px;">
+                        <div style="width: 50px; height: 50px; background: #008080; color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: 1.2rem; margin-right: 15px;">MD</div>
+                        <div>
+                            <h4 style="color: #1e3c72; margin: 0;">Maria D.</h4>
+                            <p style="color: #666; font-size: 0.9rem;">Earning since January 2024</p>
+                        </div>
+                    </div>
+                    <p style="color: #555; font-style: italic; line-height: 1.6;">"The activation fee was worth it. I've built a network of 50+ people and earn passive income every day from my referrals."</p>
+                </div>
+                
+                <div class="feature-card" style="text-align: left;">
+                    <div style="display: flex; align-items: center; margin-bottom: 20px;">
+                        <div style="width: 50px; height: 50px; background: #008080; color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: 1.2rem; margin-right: 15px;">AK</div>
+                        <div>
+                            <h4 style="color: #1e3c72; margin: 0;">Alex K.</h4>
+                            <p style="color: #666; font-size: 0.9rem;">Earning since February 2024</p>
+                        </div>
+                    </div>
+                    <p style="color: #555; font-style: italic; line-height: 1.6;">"Best decision I made! The 30 USDT activation opened up earning from 5 levels. My network keeps growing and so do my earnings."</p>
+                </div>
+            </div>
+        </div>
+    </section>
 
-<div class="video-wrapper">
-<video id="gainVideo"
-autoplay
-muted
-loop
-playsinline
-poster="https://gainwaveapp.com/preview.png">
-<source src="movie.mp4" type="video/mp4">
-Your browser does not support the video tag.
-</video>
+    <!-- CTA Section -->
+    <section class="cta">
+        <div class="container">
+            <h2>Ready to Start Earning?</h2>
+            <p>Download Gain Wave App, activate your account, and start building your income today</p>
+            <div style="display: flex; flex-wrap: wrap; gap: 20px; justify-content: center; margin-top: 30px;">
+                <a class="download-btn-large" href="https://drive.google.com/file/d/1COrTRArvelL6PXdgNr3Q8kMHKDiWijzx/view" target="_blank" rel="noopener">
+                    <i class="fab fa-android"></i> Download App
+                </a>
+                <a href="https://web.gainwaveapp.com/auth/register?ref=WPM8R" target="_blank" rel="noopener" style="background: #FFD700; color: #000; padding: 16px 40px; border-radius: 30px; font-weight: 700; text-decoration: none; transition: all 0.3s ease; display: inline-flex; align-items: center; gap: 10px;">
+                    <i class="fas fa-key"></i> Activate Account
+                </a>
+            </div>
+            <p style="margin-top: 20px; font-size: 0.9rem; opacity: 0.9;">
+                <i class="fas fa-info-circle"></i> Account activation requires 30 USDT deposit
+            </p>
+        </div>
+    </section>
 
-<button class="mute-btn" id="muteBtn" aria-label="Toggle sound">
-<i class="fas fa-volume-mute"></i>
-</button>
-</div>
-</div>
-</section>
+    <!-- Footer -->
+    <footer>
+        <div class="container footer-content">
+            <div>
+                <h3>Gain Wave App</h3>
+                <p>Earn Through Referrals</p>
+                <p style="font-size: 0.9rem; margin-top: 10px; opacity: 0.8;">
+                    <i class="fas fa-lock"></i> Secure Platform<br>
+                    <i class="fas fa-bolt"></i> Instant Payments<br>
+                    <i class="fas fa-globe"></i> Worldwide
+                </p>
+            </div>
+            <div>
+                <h3>Quick Links</h3>
+                <ul style="list-style: none; padding: 0; margin-top: 10px;">
+                    <li style="margin-bottom: 8px;"><a href="index.html" style="color: white; text-decoration: none; opacity: 0.8; transition: opacity 0.3s;">Home</a></li>
+                    <li style="margin-bottom: 8px;"><a href="about.html" style="color: white; text-decoration: none; opacity: 0.8; transition: opacity 0.3s;">About Us</a></li>
+                    <li style="margin-bottom: 8px;"><a href="referals.html" style="color: white; text-decoration: none; opacity: 0.8; transition: opacity 0.3s;">Referral System</a></li>
+                    <li style="margin-bottom: 8px;"><a href="contact.html" style="color: white; text-decoration: none; opacity: 0.8; transition: opacity 0.3s;">Contact Us</a></li>
+                </ul>
+            </div>
+            <div>
+                <h3>Follow Us</h3>
+                <div class="social-icons">
+                    <a href="https://www.youtube.com/@Gain_Wave" target="_blank" rel="noopener noreferrer" aria-label="YouTube">
+                        <i class="fab fa-youtube"></i>
+                    </a>
+                    <a href="https://www.instagram.com/gain.wave_ltd/" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                    <a href="https://x.com/Gain_Wave" target="_blank" rel="noopener noreferrer" aria-label="Twitter">
+                        <i class="fab fa-twitter"></i>
+                    </a>
+                </div>
+                <p style="margin-top: 20px; font-size: 0.9rem; opacity: 0.8;">
+                    <i class="fas fa-envelope"></i> support@gainwaveapp.com<br>
+                    <i class="fab fa-whatsapp"></i> WhatsApp Support Available
+                </p>
+            </div>
+        </div>
+        <div class="copyright">
+            © <span id="currentYear">2025</span> Gain Wave App. All rights reserved.
+        </div>
+    </footer>
 
-<section class="download">
-<div class="container">
-<h2>Start Earning Today</h2>
-<p>Download Gain Wave App and build your income</p>
-<a class="download-btn-large"
-href="https://drive.google.com/file/d/1COrTRArvelL6PXdgNr3Q8kMHKDiWijzx/view"
-target="_blank"
-rel="noopener noreferrer">
-<i class="fab fa-android"></i> Download App
-</a>
-</div>
-</section>
-
-<footer>
-<div class="container footer-content">
-<div>
-<h3>Gain Wave App</h3>
-<p>Earn Through Referrals</p>
-</div>
-<div>
-<h3>Follow Us</h3>
-<div class="social-icons">
-<a href="https://www.youtube.com/@Gain_Wave" target="_blank" rel="noopener noreferrer"><i class="fab fa-youtube"></i></a>
-<a href="https://www.instagram.com/gain.wave_ltd/" target="_blank" rel="noopener noreferrer"><i class="fab fa-instagram"></i></a>
-<a href="https://x.com/Gain_Wave" target="_blank" rel="noopener noreferrer"><i class="fab fa-twitter"></i></a>
-</div>
-</div>
-</div>
-<div class="copyright">
-© 2025 Gain Wave App. All rights reserved.
-</div>
-</footer>
-
-<script>
-const video = document.getElementById('gainVideo');
-const btn = document.getElementById('muteBtn');
-const icon = btn.querySelector('i');
-
-btn.addEventListener('click', () => {
-  video.muted = !video.muted;
-  icon.className = video.muted ? 'fas fa-volume-mute' : 'fas fa-volume-up';
-});
-</script>
-
+    <!-- External JavaScript -->
+    <script src="script.js"></script>
+    
+    <!-- Additional Scripts for index.html -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Animate table rows on scroll for index.html
+            const observerOptions = {
+                threshold: 0.2,
+                rootMargin: '0px 0px -50px 0px'
+            };
+            
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const rows = entry.target.querySelectorAll('tr');
+                        rows.forEach((row, index) => {
+                            setTimeout(() => {
+                                row.style.opacity = '1';
+                                row.style.transform = 'translateY(0)';
+                            }, index * 200);
+                        });
+                    }
+                });
+            }, observerOptions);
+            
+            // Observe table in index.html
+            const table = document.querySelector('.referral-table');
+            if (table) {
+                const rows = table.querySelectorAll('tr');
+                rows.forEach(row => {
+                    row.style.opacity = '0';
+                    row.style.transform = 'translateY(20px)';
+                    row.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+                });
+                observer.observe(table);
+            }
+            
+            // Animate level circles on scroll for index.html
+            const circleObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const circles = document.querySelectorAll('.level-circle');
+                        circles.forEach((circle, index) => {
+                            setTimeout(() => {
+                                circle.style.opacity = '1';
+                                circle.style.transform = 'scale(1)';
+                            }, index * 300);
+                        });
+                    }
+                });
+            }, { threshold: 0.3 });
+            
+            const flowSection = document.querySelector('.referral-flow');
+            if (flowSection) {
+                const circles = document.querySelectorAll('.level-circle');
+                circles.forEach(circle => {
+                    circle.style.opacity = '0';
+                    circle.style.transform = 'scale(0.5)';
+                    circle.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+                });
+                circleObserver.observe(flowSection);
+            }
+            
+            // Animate feature cards
+            const featureObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const cards = entry.target.querySelectorAll('.feature-card');
+                        cards.forEach((card, index) => {
+                            setTimeout(() => {
+                                card.style.opacity = '1';
+                                card.style.transform = 'translateY(0)';
+                            }, index * 300);
+                        });
+                    }
+                });
+            }, { threshold: 0.2 });
+            
+            const featuresSection = document.querySelector('.features-grid');
+            if (featuresSection) {
+                const cards = featuresSection.querySelectorAll('.feature-card');
+                cards.forEach(card => {
+                    card.style.opacity = '0';
+                    card.style.transform = 'translateY(30px)';
+                    card.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+                });
+                featureObserver.observe(featuresSection);
+            }
+        });
+    </script>
 </body>
 </html>
-
-

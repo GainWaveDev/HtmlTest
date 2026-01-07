@@ -1,244 +1,155 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>Contact Us | Gain Wave App</title>
-<meta name="description" content="Contact Gain Wave App support. Get help, ask questions, or reach our team easily.">
-<meta name="robots" content="index, follow">
-
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-
-<style>
-*{margin:0;padding:0;box-sizing:border-box;font-family:Segoe UI,Tahoma,Verdana,sans-serif}
-body{background:#008080;color:#333;line-height:1.6}
-.container{max-width:1200px;margin:auto;padding:0 20px}
-
-/* HEADER */
-header{background:linear-gradient(to right,#FFD700,#008080);color:#fff;padding:15px 0}
-.header-content{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap}
-.logo{font-size:26px;font-weight:bold}
-nav ul{display:flex;list-style:none;gap:20px}
-nav a{color:white;text-decoration:none;font-weight:500}
-
-/* HERO */
-.hero{
-padding:80px 20px;
-text-align:center;
-color:white;
-background:linear-gradient(rgba(0,128,128,.85),rgba(0,128,128,.85)),
-url('https://images.unsplash.com/photo-1521791136064-7986c2920216') center/cover no-repeat
-}
-.hero h1{font-size:42px}
-.hero p{margin-top:15px;font-size:18px}
-
-/* SECTION */
-section{padding:80px 20px}
-.section-title{text-align:center;margin-bottom:40px}
-.section-title h2{color:#008080;font-size:34px}
-
-/* CONTACT GRID */
-.contact-grid{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
-gap:40px
-}
-
-/* CONTACT INFO */
-.contact-info{
-background:#fff;
-padding:30px;
-border-radius:12px;
-box-shadow:0 10px 25px rgba(0,0,0,.1)
-}
-.contact-info h3{margin-bottom:20px}
-.contact-item{
-display:flex;
-align-items:center;
-margin-bottom:20px
-}
-.contact-item i{
-font-size:22px;
-color:#008080;
-margin-right:15px
-}
-
-/* FORM */
-.contact-form{
-background:#fff;
-padding:30px;
-border-radius:12px;
-box-shadow:0 10px 25px rgba(0,0,0,.1)
-}
-.contact-form form{
-display:flex;
-flex-direction:column;
-gap:15px
-}
-.contact-form input,
-.contact-form textarea{
-padding:14px;
-border-radius:8px;
-border:1px solid #ccc;
-font-size:16px;
-width:100%
-}
-.contact-form textarea{
-resize:none;
-height:140px
-}
-.contact-form button{
-background:#008080;
-color:white;
-border:none;
-padding:14px;
-border-radius:30px;
-font-size:16px;
-font-weight:bold;
-cursor:pointer
-}
-.contact-form button:hover{
-background:#20b2aa
-}
-
-/* CTA */
-.cta{
-background:linear-gradient(to right,#008080,#20b2aa);
-color:white;
-text-align:center
-}
-.cta a{
-display:inline-block;
-margin-top:20px;
-background:white;
-color:#008080;
-padding:14px 30px;
-border-radius:30px;
-font-weight:bold;
-text-decoration:none
-}
-
-/* FOOTER */
-footer{background:#2c5282;color:white;padding:40px 20px}
-.footer-content{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-gap:30px
-}
-.social-icons a{
-background:#008080;
-width:40px;
-height:40px;
-border-radius:50%;
-display:inline-flex;
-align-items:center;
-justify-content:center;
-color:white;
-margin-right:10px
-}
-.copyright{text-align:center;margin-top:30px;font-size:14px}
-</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>Contact Us | Gain Wave App</title>
+    <meta name="description" content="Contact Gain Wave App support. Get help, ask questions, or reach our team easily.">
+    <meta name="robots" content="index, follow">
+    
+    <!-- External CSS -->
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        /* Page-specific hero background */
+        .hero {
+            background: linear-gradient(rgba(0, 128, 128, 0.85), rgba(0, 128, 128, 0.85)), url('https://images.unsplash.com/photo-1521791136064-7986c2920216') center/cover no-repeat;
+        }
+    </style>
 </head>
-
 <body>
+    
+    <!-- Header -->
+    <header>
+        <div class="container header-content">
+            <div class="logo">Gain Wave App</div>
+            <button class="menu-toggle" id="menuToggle" aria-label="Toggle navigation">
+                <i class="fas fa-bars"></i>
+            </button>
+            <nav>
+                <ul id="navMenu">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="contact.html">Contact Us</a></li>
+                    <li><a href="referals.html">Referral System</a></li>
+                    <li><a href="https://whatsapp.com/channel/0029VbBnprPH5JLyxGDV0N0b" target="_blank" rel="noopener">Channel</a></li>
+                    <li><a href="https://web.gainwaveapp.com/auth/register?ref=WPM8R" target="_blank" rel="noopener">Create Account</a></li>
+                    <li><a href="https://web.gainwaveapp.com/auth/login" target="_blank" rel="noopener">Login</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
 
-<header>
-<div class="container header-content">
-<div class="logo">Gain Wave App</div>
-<nav>
-<ul>
-<li><a href="index.html">Home</a></li>
-<li><a href="about.html">About Us</a></li>
-<li><a href="contact.html">Contact Us</a></li>
-<li><a href="https://web.gainwaveapp.com/auth/register?ref=WPM8R" target="_blank" rel="noopener noreferrer">Create Account</a></li>
-<li><a href="https://web.gainwaveapp.com/auth/login" target="_blank" rel="noopener noreferrer">Login</a></li>
-</ul>
-</nav>
-</div>
-</header>
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container hero-content">
+            <h1>Contact Us</h1>
+            <p>We're here to help you succeed</p>
+        </div>
+    </section>
 
-<section class="hero">
-<div class="container">
-<h1>Contact Us</h1>
-<p>We’re here to help you succeed</p>
-</div>
-</section>
+    <!-- Contact Section -->
+    <section>
+        <div class="container">
+            <div class="section-title">
+                <h2>Get in Touch</h2>
+            </div>
 
-<section>
-<div class="container">
-<div class="section-title">
-<h2>Get in Touch</h2>
-</div>
+            <div class="contact-grid">
+                <!-- Contact Info -->
+                <div class="contact-info">
+                    <h3>Contact Information</h3>
+                    
+                    <div class="contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <div>
+                            <h4>Email Support</h4>
+                            <p>support@gainwaveapp.com</p>
+                        </div>
+                    </div>
 
-<div class="contact-grid">
+                    <div class="contact-item">
+                        <i class="fab fa-whatsapp"></i>
+                        <div>
+                            <h4>WhatsApp Support</h4>
+                            <p>Available 24/7 on our channel</p>
+                        </div>
+                    </div>
 
-<div class="contact-info">
-<h3>Contact Information</h3>
+                    <div class="contact-item">
+                        <i class="fas fa-clock"></i>
+                        <div>
+                            <h4>Support Hours</h4>
+                            <p>24/7 Online Support</p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <i class="fas fa-headset"></i>
+                        <div>
+                            <h4>Quick Help</h4>
+                            <p>Check our FAQ section first</p>
+                        </div>
+                    </div>
+                </div>
 
-<div class="contact-item">
-<i class="fas fa-envelope"></i>
-<p>support@gainwaveapp.com</p>
-</div>
+                <!-- Contact Form -->
+                <div class="contact-form">
+                    <h3>Send Us a Message</h3>
+                    
+                    <form id="contactForm">
+                        <input type="text" name="name" placeholder="Your Name" required>
+                        <input type="email" name="email" placeholder="Your Email" required>
+                        <input type="text" name="subject" placeholder="Subject" required>
+                        <textarea name="message" placeholder="Your Message" rows="5" required></textarea>
+                        <button type="submit">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
 
-<div class="contact-item">
-<i class="fab fa-whatsapp"></i>
-<p>WhatsApp Channel Support</p>
-</div>
+    <!-- CTA Section -->
+    <section class="cta">
+        <div class="container">
+            <h2>Need Immediate Help?</h2>
+            <p>Join our WhatsApp channel for updates and support</p>
+            <a href="https://whatsapp.com/channel/0029VbBnprPH5JLyxGDV0N0b" target="_blank" rel="noopener noreferrer">
+                Join WhatsApp Channel
+            </a>
+        </div>
+    </section>
 
-<div class="contact-item">
-<i class="fas fa-clock"></i>
-<p>Support: 24/7 Online</p>
-</div>
+    <!-- Footer -->
+    <footer>
+        <div class="container footer-content">
+            <div>
+                <h3>Gain Wave App</h3>
+                <p>Earn Through Referrals</p>
+            </div>
+            <div>
+                <h3>Follow Us</h3>
+                <div class="social-icons">
+                    <a href="https://www.youtube.com/@Gain_Wave" target="_blank" rel="noopener noreferrer" aria-label="YouTube">
+                        <i class="fab fa-youtube"></i>
+                    </a>
+                    <a href="https://www.instagram.com/gain.wave_ltd/" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                    <a href="https://x.com/Gain_Wave" target="_blank" rel="noopener noreferrer" aria-label="Twitter">
+                        <i class="fab fa-twitter"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="copyright">
+            © <span id="currentYear">2025</span> Gain Wave App. All rights reserved.
+        </div>
+    </footer>
 
-</div>
-
-<div class="contact-form">
-<h3>Send Us a Message</h3>
-
-<form>
-<input type="text" placeholder="Your Name" required>
-<input type="email" placeholder="Your Email" required>
-<textarea placeholder="Your Message" required></textarea>
-<button type="submit">Send Message</button>
-</form>
-
-</div>
-
-</div>
-</div>
-</section>
-
-<section class="cta">
-<div class="container">
-<h2>Need Immediate Help?</h2>
-<p>Join our WhatsApp channel for updates and support</p>
-<a href="https://whatsapp.com/channel/0029VbBnprPH5JLyxGDV0N0b" target="_blank" rel="noopener noreferrer">
-Join WhatsApp Channel
-</a>
-</div>
-</section>
-
-<footer>
-<div class="container footer-content">
-<div>
-<h3>Gain Wave App</h3>
-<p>Earn Through Referrals</p>
-</div>
-<div>
-<h3>Follow Us</h3>
-<div class="social-icons">
-<a href="https://www.youtube.com/@Gain_Wave" target="_blank" rel="noopener noreferrer"><i class="fab fa-youtube"></i></a>
-<a href="https://www.instagram.com/gain.wave_ltd/" target="_blank" rel="noopener noreferrer"><i class="fab fa-instagram"></i></a>
-<a href="https://x.com/Gain_Wave" target="_blank" rel="noopener noreferrer"><i class="fab fa-twitter"></i></a>
-</div>
-</div>
-</div>
-
-<div class="copyright">
-© 2025 Gain Wave App. All rights reserved.
-</div>
-</footer>
-
+    <!-- External JavaScript -->
+    <script src="script.js"></script>
 </body>
 </html>

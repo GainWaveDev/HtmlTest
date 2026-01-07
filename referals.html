@@ -1,0 +1,1309 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>Referral System | Gain Wave App</title>
+    <meta name="description" content="Learn how Gain Wave App referral system works and earn up to 20 USDT from one referral chain.">
+    <meta name="robots" content="index, follow">
+    
+    <!-- Google Ads -->
+    <meta name="google-adsense-account" content="ca-pub-8388202384591110">
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js" crossorigin="anonymous"></script>
+    
+    <!-- External CSS -->
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        /* Additional styles for referral page */
+        .referral {
+            background: linear-gradient(to right, #1e3c72, #2a5298);
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .referral::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255, 215, 0, 0.1) 0%, transparent 70%);
+            animation: pulse 4s ease-in-out infinite;
+        }
+        
+        .referral-table {
+            overflow-x: auto;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+            margin: 40px auto;
+            max-width: 800px;
+            animation: slideInRight 0.8s ease;
+        }
+        
+        .referral-table table {
+            width: 100%;
+            border-collapse: collapse;
+            min-width: 500px;
+        }
+        
+        .referral-table th {
+            background: linear-gradient(to right, #008080, #20b2aa);
+            color: white;
+            font-weight: 700;
+            font-size: 1.1rem;
+            padding: 20px;
+            text-align: center;
+            border-bottom: 3px solid #FFD700;
+        }
+        
+        .referral-table td {
+            padding: 18px;
+            text-align: center;
+            border-bottom: 1px solid #eee;
+            color: #333;
+            font-weight: 500;
+            font-size: 1rem;
+        }
+        
+        .referral-table tr {
+            transition: all 0.3s ease;
+        }
+        
+        .referral-table tr:hover {
+            background: linear-gradient(to right, rgba(0, 128, 128, 0.05), rgba(32, 178, 170, 0.05));
+            transform: scale(1.01);
+        }
+        
+        .referral-table td:last-child {
+            color: #008080;
+            font-weight: 700;
+            font-size: 1.1rem;
+            background: rgba(0, 128, 128, 0.05);
+        }
+        
+        .referral-table td:nth-child(2) {
+            color: #2a5298;
+            font-weight: 600;
+        }
+        
+        .referral-table td:nth-child(1) {
+            font-weight: 700;
+            color: #1e3c72;
+            background: rgba(255, 215, 0, 0.05);
+        }
+        
+        /* Referral circles */
+        .referral-flow {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 20px;
+            margin: 50px 0;
+            padding: 20px;
+        }
+        
+        .level-circle {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background: linear-gradient(145deg, #FFD700, #ffae00);
+            color: #000;
+            font-weight: 800;
+            font-size: 1.3rem;
+            box-shadow: 0 10px 30px rgba(255, 215, 0, 0.4);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            animation: fadeIn 0.6s ease;
+            border: 3px solid white;
+        }
+        
+        .level-circle::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+            transform: rotate(45deg);
+            animation: shine 3s infinite linear;
+        }
+        
+        .level-circle:hover {
+            transform: scale(1.1) rotate(5deg);
+            box-shadow: 0 15px 40px rgba(255, 215, 0, 0.6);
+        }
+        
+        .level-circle span {
+            font-size: 0.9rem;
+            opacity: 0.9;
+            font-weight: 600;
+            margin-top: 5px;
+        }
+        
+        /* Section title for referral page */
+        .section-title h2 {
+            color: white;
+            background: linear-gradient(to right, #FFD700, #ffae00);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            display: inline-block;
+            margin-bottom: 15px;
+        }
+        
+        .section-title p {
+            color: rgba(255, 255, 255, 0.9);
+            font-size: 1.2rem;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        /* How it works section */
+        .steps-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+        
+        .step-card {
+            background: white;
+            padding: 30px;
+            border-radius: 12px;
+            text-align: center;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            border-top: 5px solid #008080;
+        }
+        
+        .step-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+        }
+        
+        .step-card i {
+            font-size: 48px;
+            color: #008080;
+            margin-bottom: 20px;
+            background: linear-gradient(145deg, rgba(0, 128, 128, 0.1), rgba(255, 215, 0, 0.1));
+            width: 80px;
+            height: 80px;
+            line-height: 80px;
+            border-radius: 50%;
+            display: inline-block;
+        }
+        
+        .step-card h3 {
+            color: #1e3c72;
+            margin-bottom: 15px;
+            font-size: 1.3rem;
+        }
+        
+        .step-card p {
+            color: #666;
+            line-height: 1.6;
+        }
+        
+        /* Earnings calculator */
+        .calculator {
+            background: white;
+            border-radius: 15px;
+            padding: 40px;
+            margin-top: 60px;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+        }
+        
+        .calculator h3 {
+            color: #1e3c72;
+            text-align: center;
+            margin-bottom: 30px;
+            font-size: 1.8rem;
+        }
+        
+        .calc-inputs {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+        
+        .calc-input {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .calc-input label {
+            color: #666;
+            font-weight: 600;
+            font-size: 1rem;
+        }
+        
+        .calc-input input {
+            width: 100%;
+            max-width: 150px;
+            padding: 12px;
+            border: 2px solid #ddd;
+            border-radius: 8px;
+            text-align: center;
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: #008080;
+            transition: all 0.3s ease;
+        }
+        
+        .calc-input input:focus {
+            outline: none;
+            border-color: #008080;
+            box-shadow: 0 0 0 3px rgba(0, 128, 128, 0.1);
+        }
+        
+        .calc-result {
+            text-align: center;
+            padding: 30px;
+            background: linear-gradient(to right, #008080, #20b2aa);
+            color: white;
+            border-radius: 10px;
+            margin-top: 30px;
+        }
+        
+        .calc-result h4 {
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+        }
+        
+        .calc-result .amount {
+            font-size: 3rem;
+            font-weight: 800;
+            color: #FFD700;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+            transition: all 0.3s ease;
+        }
+        
+        /* FAQ Styling */
+        .faq-container {
+            background: white;
+            border-radius: 15px;
+            padding: 40px;
+            margin-top: 30px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+        }
+        
+        .faq-item {
+            margin-bottom: 30px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid #eee;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+        
+        .faq-item:last-child {
+            margin-bottom: 0;
+            border-bottom: none;
+        }
+        
+        .faq-item:hover {
+            padding-left: 10px;
+        }
+        
+        .faq-question {
+            color: #008080;
+            margin-bottom: 10px;
+            font-size: 1.1rem;
+            display: flex;
+            align-items: center;
+        }
+        
+        .faq-question i {
+            margin-right: 10px;
+            font-size: 1.2rem;
+        }
+        
+        .faq-answer {
+            color: #666;
+            line-height: 1.6;
+            padding-left: 30px;
+            padding-right: 20px;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease, padding 0.3s ease;
+        }
+        
+        .faq-item.active .faq-answer {
+            max-height: 500px;
+            padding-top: 10px;
+            padding-bottom: 10px;
+        }
+        
+        .faq-answer strong {
+            color: #1e3c72;
+        }
+        
+        /* Mobile Navigation Styles */
+        @media (max-width: 768px) {
+            /* Show menu toggle button on mobile */
+            .menu-toggle {
+                display: block !important;
+            }
+            
+            /* Hide nav menu by default on mobile */
+            nav ul {
+                display: none !important;
+                flex-direction: column;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background: #008080;
+                padding: 20px;
+                box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+                z-index: 1000;
+                margin-top: 0;
+            }
+            
+            /* Show nav menu when has 'show' class */
+            nav ul.show {
+                display: flex !important;
+            }
+            
+            nav ul li {
+                width: 100%;
+                text-align: center;
+                padding: 10px 0;
+            }
+            
+            nav a {
+                display: block;
+                padding: 12px;
+                width: 100%;
+            }
+            
+            /* Other mobile styles */
+            .level-circle {
+                width: 80px;
+                height: 80px;
+                font-size: 1.1rem;
+            }
+            
+            .level-circle span {
+                font-size: 0.8rem;
+            }
+            
+            .referral-table {
+                margin: 20px 0;
+            }
+            
+            .referral-table th,
+            .referral-table td {
+                padding: 15px 10px;
+                font-size: 0.9rem;
+            }
+            
+            .referral-table td:last-child {
+                font-size: 1rem;
+            }
+            
+            .step-card {
+                padding: 25px;
+            }
+            
+            .calculator {
+                padding: 30px 20px;
+            }
+            
+            .calc-inputs {
+                grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            }
+            
+            .calc-input input {
+                max-width: 120px;
+            }
+            
+            .calc-result .amount {
+                font-size: 2.5rem;
+            }
+            
+            .faq-container {
+                padding: 25px 20px;
+            }
+            
+            .faq-question {
+                font-size: 1rem;
+            }
+            
+            .faq-answer {
+                padding-left: 20px;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .level-circle {
+                width: 70px;
+                height: 70px;
+                font-size: 1rem;
+            }
+            
+            .level-circle span {
+                font-size: 0.7rem;
+            }
+            
+            .referral-flow {
+                gap: 15px;
+                margin: 30px 0;
+            }
+            
+            .referral-table {
+                margin: 10px 0;
+            }
+            
+            .referral-table th,
+            .referral-table td {
+                padding: 12px 8px;
+                font-size: 0.85rem;
+            }
+            
+            .calc-inputs {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        /* Animations */
+        @keyframes pulse {
+            0% {
+                box-shadow: 0 10px 30px rgba(255, 215, 0, 0.4);
+                transform: scale(1);
+            }
+            50% {
+                box-shadow: 0 15px 40px rgba(255, 215, 0, 0.6);
+                transform: scale(1.005);
+            }
+            100% {
+                box-shadow: 0 10px 30px rgba(255, 215, 0, 0.4);
+                transform: scale(1);
+            }
+        }
+        
+        @keyframes shine {
+            0% { transform: translateX(-100%) rotate(45deg); }
+            100% { transform: translateX(100%) rotate(45deg); }
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        @keyframes slideInRight {
+            from { opacity: 0; transform: translateX(50px); }
+            to { opacity: 1; transform: translateX(0); }
+        }
+        
+        /* Preset buttons styles */
+        .preset-buttons {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 10px;
+            margin: 20px 0;
+        }
+        
+        .preset-btn {
+            background: #008080;
+            color: white;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .preset-btn:hover {
+            background: #20b2aa;
+            transform: translateY(-2px);
+        }
+    </style>
+</head>
+<body>
+    
+    <!-- Header -->
+    <header>
+        <div class="container header-content">
+            <div class="logo">Gain Wave App</div>
+            <button class="menu-toggle" id="menuToggle" aria-label="Toggle navigation" style="display: none;">
+                <i class="fas fa-bars"></i>
+            </button>
+            <nav>
+                <ul id="navMenu">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="contact.html">Contact Us</a></li>
+                    <li><a href="referals.html">Referral System</a></li>
+                    <li><a href="https://whatsapp.com/channel/0029VbBnprPH5JLyxGDV0N0b" target="_blank" rel="noopener">Channel</a></li>
+                    <li><a href="https://web.gainwaveapp.com/auth/register?ref=WPM8R" target="_blank" rel="noopener">Create Account</a></li>
+                    <li><a href="https://web.gainwaveapp.com/auth/login" target="_blank" rel="noopener">Login</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" style="background: linear-gradient(rgba(30, 60, 114, 0.85), rgba(30, 60, 114, 0.85)), url('https://images.unsplash.com/photo-1618005198919-d3d4b5a92ead') center/cover no-repeat;">
+        <div class="container hero-content">
+            <h1>Referral System</h1>
+            <p>Maximize your earnings with our 5-level referral program</p>
+        </div>
+    </section>
+
+    <!-- Referral System Section -->
+    <section class="referral">
+        <div class="container">
+            <div class="section-title">
+                <h2>Referral Income System</h2>
+                <p>Earn up to <strong>20 USDT</strong> from one referral chain</p>
+            </div>
+
+            <!-- Visual Referral Flow -->
+            <div class="referral-flow">
+                <div class="level-circle">A<br><span>10 USDT</span></div>
+                <div class="level-circle">B<br><span>5 USDT</span></div>
+                <div class="level-circle">C<br><span>3 USDT</span></div>
+                <div class="level-circle">D<br><span>1 USDT</span></div>
+                <div class="level-circle">E<br><span>1 USDT</span></div>
+            </div>
+
+            <!-- Referral Table -->
+            <div class="referral-table">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Level</th>
+                            <th>Referral Type</th>
+                            <th>Earnings</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>A</td>
+                            <td>Direct Referrals</td>
+                            <td>10 USDT</td>
+                        </tr>
+                        <tr>
+                            <td>B</td>
+                            <td>Invited by Level A</td>
+                            <td>5 USDT</td>
+                        </tr>
+                        <tr>
+                            <td>C</td>
+                            <td>Invited by Level B</td>
+                            <td>3 USDT</td>
+                        </tr>
+                        <tr>
+                            <td>D</td>
+                            <td>Invited by Level C</td>
+                            <td>1 USDT</td>
+                        </tr>
+                        <tr>
+                            <td>E</td>
+                            <td>Invited by Level D</td>
+                            <td>1 USDT</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            
+            <!-- Total Earnings Summary -->
+            <div style="text-align: center; margin: 40px 0; padding: 20px; background: rgba(255, 255, 255, 0.1); border-radius: 10px;">
+                <h3 style="color: #FFD700; margin-bottom: 10px;">Total Potential Earnings</h3>
+                <p style="font-size: 1.2rem; color: white;">
+                    <strong style="font-size: 2rem; color: #FFD700;">20 USDT</strong> per complete referral chain
+                </p>
+                <p style="color: rgba(255, 255, 255, 0.8); margin-top: 10px;">
+                    Earn from 5 levels of your network
+                </p>
+            </div>
+            
+            <!-- How It Works Section -->
+            <div class="section-title" style="margin-top: 60px;">
+                <h2>How It Works</h2>
+                <p>Simple steps to maximize your earnings</p>
+            </div>
+            
+            <div class="steps-grid">
+                <div class="step-card">
+                    <i class="fas fa-user-plus"></i>
+                    <h3>Step 1: Share Your Link</h3>
+                    <p>Share your unique referral link with friends, family, or on social media</p>
+                </div>
+                
+                <div class="step-card">
+                    <i class="fas fa-network-wired"></i>
+                    <h3>Step 2: Build Your Network</h3>
+                    <p>Each person you refer can also refer others, creating multiple levels</p>
+                </div>
+                
+                <div class="step-card">
+                    <i class="fas fa-money-bill-wave"></i>
+                    <h3>Step 3: Earn Continuously</h3>
+                    <p>Earn commissions from all 5 levels of your growing referral network</p>
+                </div>
+            </div>
+            
+            <!-- Account Activation Highlight - UPDATED FOR BETTER VISIBILITY -->
+            <div class="activation-highlight" style="
+                background: linear-gradient(135deg, #FFD700 0%, #ffae00 100%);
+                border-left: 6px solid #008080;
+                padding: 30px;
+                margin: 30px 0;
+                border-radius: 12px;
+                box-shadow: 0 10px 30px rgba(255, 215, 0, 0.4);
+                animation: pulse 2s infinite;
+                position: relative;
+                overflow: hidden;
+                color: #000;
+            ">
+                <div style="position: absolute; top: -50px; right: -50px; width: 150px; height: 150px; background: rgba(255, 255, 255, 0.2); border-radius: 50%;"></div>
+                <div style="position: absolute; bottom: -30px; left: -30px; width: 100px; height: 100px; background: rgba(0, 128, 128, 0.2); border-radius: 50%;"></div>
+                
+                <div style="position: relative; z-index: 2;">
+                    <h4 style="color: #000; margin-bottom: 15px; font-size: 1.5rem; display: flex; align-items: center; gap: 10px;">
+                        <i class="fas fa-key" style="color: #008080; font-size: 1.8rem;"></i> 
+                        Account Activation Required
+                    </h4>
+                    
+                    <p style="color: #333; margin-bottom: 20px; font-size: 1.1rem; line-height: 1.6;">
+                        To unlock the full earning potential and start earning from referrals, 
+                        you need to activate your account first.
+                    </p>
+                    
+                    <div style="display: flex; align-items: center; gap: 20px; flex-wrap: wrap; margin-bottom: 20px;">
+                        <div style="
+                            background: #008080;
+                            color: white;
+                            padding: 12px 30px;
+                            border-radius: 30px;
+                            font-weight: 800;
+                            font-size: 1.8rem;
+                            box-shadow: 0 5px 15px rgba(0, 128, 128, 0.4);
+                            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
+                            border: 3px solid white;
+                        ">
+                            30 USDT
+                        </div>
+                        <div style="flex: 1; min-width: 200px;">
+                            <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 8px;">
+                                <i class="fas fa-check-circle" style="color: #008080;"></i>
+                                <span style="color: #333; font-weight: 600;">One-time payment</span>
+                            </div>
+                            <div style="display: flex; align-items: center; gap: 10px;">
+                                <i class="fas fa-check-circle" style="color: #008080;"></i>
+                                <span style="color: #333; font-weight: 600;">Full access to all features</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div style="
+                        background: rgba(255, 255, 255, 0.9);
+                        padding: 20px;
+                        border-radius: 10px;
+                        margin-top: 20px;
+                        border: 2px dashed #008080;
+                    ">
+                        <h5 style="color: #1e3c72; margin-bottom: 10px; display: flex; align-items: center; gap: 10px;">
+                            <i class="fas fa-info-circle" style="color: #008080;"></i>
+                            How to Activate:
+                        </h5>
+                        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px;">
+                            <div style="display: flex; align-items: center; gap: 10px;">
+                                <div style="
+                                    width: 30px;
+                                    height: 30px;
+                                    background: #008080;
+                                    color: white;
+                                    border-radius: 50%;
+                                    display: flex;
+                                    align-items: center;
+                                    justify-content: center;
+                                    font-weight: 800;
+                                    flex-shrink: 0;
+                                ">1</div>
+                                <span style="color: #333;">Deposit 30 USDT to your account</span>
+                            </div>
+                            <div style="display: flex; align-items: center; gap: 10px;">
+                                <div style="
+                                    width: 30px;
+                                    height: 30px;
+                                    background: #008080;
+                                    color: white;
+                                    border-radius: 50%;
+                                    display: flex;
+                                    align-items: center;
+                                    justify-content: center;
+                                    font-weight: 800;
+                                    flex-shrink: 0;
+                                ">2</div>
+                                <span style="color: #333;">Subscribe to the App</span>
+                            </div>
+                            <div style="display: flex; align-items: center; gap: 10px;">
+                                <div style="
+                                    width: 30px;
+                                    height: 30px;
+                                    background: #008080;
+                                    color: white;
+                                    border-radius: 50%;
+                                    display: flex;
+                                    align-items: center;
+                                    justify-content: center;
+                                    font-weight: 800;
+                                    flex-shrink: 0;
+                                ">3</div>
+                                <span style="color: #333;">Start earning from referrals</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div style="text-align: center; margin-top: 25px;">
+                        <a href="https://web.gainwaveapp.com/auth/register?ref=WPM8R" 
+                           target="_blank" 
+                           rel="noopener noreferrer"
+                           style="
+                                display: inline-flex;
+                                align-items: center;
+                                gap: 10px;
+                                background: linear-gradient(to right, #008080, #20b2aa);
+                                color: white;
+                                padding: 15px 35px;
+                                border-radius: 30px;
+                                font-weight: 800;
+                                text-decoration: none;
+                                font-size: 1.1rem;
+                                box-shadow: 0 8px 20px rgba(0, 128, 128, 0.4);
+                                transition: all 0.3s ease;
+                                border: 2px solid white;
+                           "
+                           onmouseover="this.style.transform='translateY(-3px)'; this.style.boxShadow='0 12px 25px rgba(0, 128, 128, 0.6)';"
+                           onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 8px 20px rgba(0, 128, 128, 0.4)';">
+                            <i class="fas fa-rocket"></i>
+                            Activate Your Account Now
+                        </a>
+                        <p style="color: #333; margin-top: 15px; font-size: 0.9rem; opacity: 0.8;">
+                            <i class="fas fa-lock"></i> Secure payment • Instant activation • 24/7 Support
+                        </p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Earnings Calculator - FIXED WORKING VERSION -->
+            <div class="calculator">
+                <h3>Calculate Your Potential Earnings</h3>
+                
+                <div class="preset-buttons" id="presetButtons">
+                    <!-- Preset buttons will be added by JavaScript -->
+                </div>
+                
+                <div class="calc-inputs">
+                    <div class="calc-input">
+                        <label>Level A Referrals:</label>
+                        <input type="number" id="levelA" value="5" min="0" max="1000" step="1">
+                        <small style="color: #666; font-size: 0.8rem;">Direct referrals</small>
+                    </div>
+                    <div class="calc-input">
+                        <label>Level B Referrals:</label>
+                        <input type="number" id="levelB" value="25" min="0" max="5000" step="1">
+                        <small style="color: #666; font-size: 0.8rem;">From Level A referrals</small>
+                    </div>
+                    <div class="calc-input">
+                        <label>Level C Referrals:</label>
+                        <input type="number" id="levelC" value="125" min="0" max="25000" step="1">
+                        <small style="color: #666; font-size: 0.8rem;">From Level B referrals</small>
+                    </div>
+                    <div class="calc-input">
+                        <label>Level D Referrals:</label>
+                        <input type="number" id="levelD" value="625" min="0" max="125000" step="1">
+                        <small style="color: #666; font-size: 0.8rem;">From Level C referrals</small>
+                    </div>
+                    <div class="calc-input">
+                        <label>Level E Referrals:</label>
+                        <input type="number" id="levelE" value="3125" min="0" max="625000" step="1">
+                        <small style="color: #666; font-size: 0.8rem;">From Level D referrals</small>
+                    </div>
+                </div>
+                <div class="calc-result">
+                    <h4>Estimated Monthly Earnings</h4>
+                    <div class="amount" id="estimatedEarnings">0 USDT</div>
+                    <div style="margin-top: 15px; display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 10px;">
+                        <div style="background: rgba(255,255,255,0.2); padding: 10px; border-radius: 8px;">
+                            <div style="font-size: 0.9rem; opacity: 0.9;">Level A</div>
+                            <div style="font-weight: 700; color: #FFD700;" id="levelAEarnings">0 USDT</div>
+                        </div>
+                        <div style="background: rgba(255,255,255,0.2); padding: 10px; border-radius: 8px;">
+                            <div style="font-size: 0.9rem; opacity: 0.9;">Level B</div>
+                            <div style="font-weight: 700; color: #FFD700;" id="levelBEarnings">0 USDT</div>
+                        </div>
+                        <div style="background: rgba(255,255,255,0.2); padding: 10px; border-radius: 8px;">
+                            <div style="font-size: 0.9rem; opacity: 0.9;">Level C</div>
+                            <div style="font-weight: 700; color: #FFD700;" id="levelCEarnings">0 USDT</div>
+                        </div>
+                        <div style="background: rgba(255,255,255,0.2); padding: 10px; border-radius: 8px;">
+                            <div style="font-size: 0.9rem; opacity: 0.9;">Level D+E</div>
+                            <div style="font-weight: 700; color: #FFD700;" id="levelDEEarnings">0 USDT</div>
+                        </div>
+                    </div>
+                    <p style="margin-top: 15px; opacity: 0.9; font-size: 0.9rem;">
+                        <i class="fas fa-info-circle"></i> Based on your network growth • Earnings update in real-time
+                    </p>
+                </div>
+            </div>
+            
+            <!-- FAQ Section -->
+            <div class="section-title" style="margin-top: 60px;">
+                <h2>Frequently Asked Questions</h2>
+            </div>
+            
+            <div class="faq-container">
+                <div class="faq-item active">
+                    <div class="faq-question">
+                        <i class="fas fa-question-circle"></i>
+                        Q: How to Activate my account?
+                    </div>
+                    <div class="faq-answer">
+                        <strong>Answer:</strong> Deposit a one-time payment of 30 USDT to your account and 
+                        subscribe to the App. Once activated, you can start your journey to make money 
+                        with Gain Wave App. This activation fee gives you full access to all features 
+                        and the 5-level referral system.
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <i class="fas fa-question-circle"></i>
+                        Q: How do I get my referral link?
+                    </div>
+                    <div class="faq-answer">
+                        <strong>Answer:</strong> After registering and activating your account, you'll find 
+                        your unique referral link in your dashboard. You can share this link with anyone 
+                        to start building your referral network.
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <i class="fas fa-question-circle"></i>
+                        Q: When do I receive my earnings?
+                    </div>
+                    <div class="faq-answer">
+                        <strong>Answer:</strong> Earnings are credited instantly to your account as your 
+                        referrals join and activate their accounts. You can withdraw your earnings 
+                        according to our payment schedule, which is typically within 24-48 hours.
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <i class="fas fa-question-circle"></i>
+                        Q: Is there a limit to how many people I can refer?
+                    </div>
+                    <div class="faq-answer">
+                        <strong>Answer:</strong> No! You can refer unlimited people and earn from all 
+                        5 levels of your network. The more people you refer, the more you can earn.
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <i class="fas fa-question-circle"></i>
+                        Q: How deep does the referral system go?
+                    </div>
+                    <div class="faq-answer">
+                        <strong>Answer:</strong> Our system goes 5 levels deep, allowing you to earn from 
+                        a wide network of referrals. You earn from your direct referrals (Level A), 
+                        and then from their referrals up to Level E.
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <i class="fas fa-question-circle"></i>
+                        Q: What payment methods are accepted?
+                    </div>
+                    <div class="faq-answer">
+                        <strong>Answer:</strong> We accept USDT deposits for account activation. You can 
+                        use various cryptocurrency wallets to transfer USDT to your Gain Wave App 
+                        account for activation and subscription.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta">
+        <div class="container">
+            <h2>Start Building Your Network Today</h2>
+            <p>Activate your account and start earning from referrals</p>
+            <a href="https://web.gainwaveapp.com/auth/register?ref=WPM8R" target="_blank" rel="noopener noreferrer">
+                <i class="fas fa-rocket"></i> Activate Account & Start Earning
+            </a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container footer-content">
+            <div>
+                <h3>Gain Wave App</h3>
+                <p>Earn Through Referrals</p>
+            </div>
+            <div>
+                <h3>Follow Us</h3>
+                <div class="social-icons">
+                    <a href="https://www.youtube.com/@Gain_Wave" target="_blank" rel="noopener noreferrer" aria-label="YouTube">
+                        <i class="fab fa-youtube"></i>
+                    </a>
+                    <a href="https://www.instagram.com/gain.wave_ltd/" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                    <a href="https://x.com/Gain_Wave" target="_blank" rel="noopener noreferrer" aria-label="Twitter">
+                        <i class="fab fa-twitter"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="copyright">
+            © <span id="currentYear">2025</span> Gain Wave App. All rights reserved.
+        </div>
+    </footer>
+
+    <!-- External JavaScript -->
+    <script src="script.js"></script>
+    
+    <!-- Fixed Calculator and Navigation Script -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // ==================== MOBILE NAVIGATION FIX ====================
+            const menuToggle = document.getElementById('menuToggle');
+            const navMenu = document.getElementById('navMenu');
+            
+            // Initialize mobile menu
+            function initMobileMenu() {
+                if (window.innerWidth <= 768) {
+                    menuToggle.style.display = 'block';
+                    navMenu.style.display = 'none';
+                    
+                    // Add click event to toggle menu
+                    menuToggle.addEventListener('click', function(e) {
+                        e.stopPropagation();
+                        toggleMobileMenu();
+                    });
+                    
+                    // Close menu when clicking outside
+                    document.addEventListener('click', function(e) {
+                        if (!navMenu.contains(e.target) && !menuToggle.contains(e.target)) {
+                            if (navMenu.classList.contains('show')) {
+                                closeMobileMenu();
+                            }
+                        }
+                    });
+                    
+                    // Close menu when clicking a link
+                    const navLinks = navMenu.querySelectorAll('a');
+                    navLinks.forEach(link => {
+                        link.addEventListener('click', closeMobileMenu);
+                    });
+                } else {
+                    menuToggle.style.display = 'none';
+                    navMenu.style.display = 'flex';
+                }
+            }
+            
+            function toggleMobileMenu() {
+                if (navMenu.classList.contains('show')) {
+                    closeMobileMenu();
+                } else {
+                    openMobileMenu();
+                }
+            }
+            
+            function openMobileMenu() {
+                navMenu.style.display = 'flex';
+                navMenu.classList.add('show');
+                menuToggle.innerHTML = '<i class="fas fa-times"></i>';
+            }
+            
+            function closeMobileMenu() {
+                navMenu.style.display = 'none';
+                navMenu.classList.remove('show');
+                menuToggle.innerHTML = '<i class="fas fa-bars"></i>';
+            }
+            
+            // Initialize and update on resize
+            initMobileMenu();
+            window.addEventListener('resize', initMobileMenu);
+            
+            // ==================== CALCULATOR FIX ====================
+            // Calculator functionality
+            const levelAInput = document.getElementById('levelA');
+            const levelBInput = document.getElementById('levelB');
+            const levelCInput = document.getElementById('levelC');
+            const levelDInput = document.getElementById('levelD');
+            const levelEInput = document.getElementById('levelE');
+            
+            const earningsDisplay = document.getElementById('estimatedEarnings');
+            const levelAEarnings = document.getElementById('levelAEarnings');
+            const levelBEarnings = document.getElementById('levelBEarnings');
+            const levelCEarnings = document.getElementById('levelCEarnings');
+            const levelDEEarnings = document.getElementById('levelDEEarnings');
+            const presetButtons = document.getElementById('presetButtons');
+            
+            // Preset configurations
+            const presets = [
+                {label: 'Starter', values: [5, 25, 125, 625, 3125]},
+                {label: 'Intermediate', values: [10, 50, 250, 1250, 6250]},
+                {label: 'Advanced', values: [20, 100, 500, 2500, 12500]},
+                {label: 'Pro', values: [50, 250, 1250, 6250, 31250]}
+            ];
+            
+            // Create preset buttons
+            presets.forEach(preset => {
+                const button = document.createElement('button');
+                button.textContent = preset.label;
+                button.className = 'preset-btn';
+                button.addEventListener('click', function() {
+                    levelAInput.value = preset.values[0];
+                    levelBInput.value = preset.values[1];
+                    levelCInput.value = preset.values[2];
+                    levelDInput.value = preset.values[3];
+                    levelEInput.value = preset.values[4];
+                    calculateEarnings();
+                    saveCalculatorValues();
+                });
+                presetButtons.appendChild(button);
+            });
+            
+            function calculateEarnings() {
+                // Get values from inputs, default to 0 if empty
+                const levelA = parseInt(levelAInput.value) || 0;
+                const levelB = parseInt(levelBInput.value) || 0;
+                const levelC = parseInt(levelCInput.value) || 0;
+                const levelD = parseInt(levelDInput.value) || 0;
+                const levelE = parseInt(levelEInput.value) || 0;
+                
+                // Calculate earnings for each level (using the referral rates from your table)
+                const earningsLevelA = levelA * 10; // 10 USDT per Level A referral
+                const earningsLevelB = levelB * 5;  // 5 USDT per Level B referral
+                const earningsLevelC = levelC * 3;  // 3 USDT per Level C referral
+                const earningsLevelD = levelD * 1;  // 1 USDT per Level D referral
+                const earningsLevelE = levelE * 1;  // 1 USDT per Level E referral
+                
+                // Total earnings
+                const totalEarnings = earningsLevelA + earningsLevelB + earningsLevelC + earningsLevelD + earningsLevelE;
+                const levelDETotal = earningsLevelD + earningsLevelE;
+                
+                // Update displays with formatted numbers
+                earningsDisplay.textContent = formatNumber(totalEarnings) + ' USDT';
+                levelAEarnings.textContent = formatNumber(earningsLevelA) + ' USDT';
+                levelBEarnings.textContent = formatNumber(earningsLevelB) + ' USDT';
+                levelCEarnings.textContent = formatNumber(earningsLevelC) + ' USDT';
+                levelDEEarnings.textContent = formatNumber(levelDETotal) + ' USDT';
+                
+                // Add animation effect
+                earningsDisplay.style.transform = 'scale(1.1)';
+                setTimeout(() => {
+                    earningsDisplay.style.transform = 'scale(1)';
+                }, 300);
+                
+                // Update input colors based on value
+                updateInputColors();
+            }
+            
+            function formatNumber(num) {
+                if (num >= 1000000) {
+                    return (num / 1000000).toFixed(1) + 'M';
+                } else if (num >= 1000) {
+                    return (num / 1000).toFixed(1) + 'K';
+                }
+                return num.toLocaleString();
+            }
+            
+            function updateInputColors() {
+                const inputs = [levelAInput, levelBInput, levelCInput, levelDInput, levelEInput];
+                const maxValues = [1000, 5000, 25000, 125000, 625000];
+                
+                inputs.forEach((input, index) => {
+                    const value = parseInt(input.value) || 0;
+                    const max = maxValues[index];
+                    const percentage = (value / max) * 100;
+                    
+                    if (percentage > 80) {
+                        input.style.borderColor = '#00c853';
+                        input.style.boxShadow = '0 0 0 3px rgba(0, 200, 83, 0.1)';
+                    } else if (percentage > 50) {
+                        input.style.borderColor = '#FFD700';
+                        input.style.boxShadow = '0 0 0 3px rgba(255, 215, 0, 0.1)';
+                    } else {
+                        input.style.borderColor = '#ddd';
+                        input.style.boxShadow = 'none';
+                    }
+                });
+            }
+            
+            // Add event listeners to all inputs
+            const allInputs = [levelAInput, levelBInput, levelCInput, levelDInput, levelEInput];
+            allInputs.forEach(input => {
+                input.addEventListener('input', function() {
+                    calculateEarnings();
+                    saveCalculatorValues();
+                });
+                input.addEventListener('change', function() {
+                    calculateEarnings();
+                    saveCalculatorValues();
+                });
+                
+                // Add step buttons for mobile
+                input.addEventListener('focus', function() {
+                    this.select();
+                });
+            });
+            
+            // Auto-save calculator values in localStorage
+            function saveCalculatorValues() {
+                const values = {
+                    levelA: levelAInput.value,
+                    levelB: levelBInput.value,
+                    levelC: levelCInput.value,
+                    levelD: levelDInput.value,
+                    levelE: levelEInput.value
+                };
+                localStorage.setItem('gainWaveCalculator', JSON.stringify(values));
+            }
+            
+            function loadCalculatorValues() {
+                const saved = localStorage.getItem('gainWaveCalculator');
+                if (saved) {
+                    try {
+                        const values = JSON.parse(saved);
+                        levelAInput.value = values.levelA || 5;
+                        levelBInput.value = values.levelB || 25;
+                        levelCInput.value = values.levelC || 125;
+                        levelDInput.value = values.levelD || 625;
+                        levelEInput.value = values.levelE || 3125;
+                    } catch (e) {
+                        console.error('Error loading calculator values:', e);
+                    }
+                }
+                calculateEarnings();
+            }
+            
+            // Load saved values
+            loadCalculatorValues();
+            
+            // Add auto-calculate on page load animation
+            setTimeout(() => {
+                earningsDisplay.style.transition = 'transform 0.5s ease';
+                earningsDisplay.style.transform = 'scale(1.2)';
+                setTimeout(() => {
+                    earningsDisplay.style.transform = 'scale(1)';
+                }, 500);
+            }, 1000);
+            
+            // ==================== FAQ ACCORDION ====================
+            const faqItems = document.querySelectorAll('.faq-item');
+            faqItems.forEach((item, index) => {
+                const question = item.querySelector('.faq-question');
+                const answer = item.querySelector('.faq-answer');
+                
+                question.addEventListener('click', function() {
+                    // Close all other FAQ items
+                    faqItems.forEach(otherItem => {
+                        if (otherItem !== item) {
+                            otherItem.classList.remove('active');
+                        }
+                    });
+                    
+                    // Toggle current item
+                    item.classList.toggle('active');
+                });
+            });
+            
+            // ==================== ANIMATIONS ====================
+            // Animate table rows on scroll
+            const observerOptions = {
+                threshold: 0.2,
+                rootMargin: '0px 0px -50px 0px'
+            };
+            
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const rows = entry.target.querySelectorAll('tr');
+                        rows.forEach((row, index) => {
+                            setTimeout(() => {
+                                row.style.opacity = '1';
+                                row.style.transform = 'translateY(0)';
+                            }, index * 200);
+                        });
+                    }
+                });
+            }, observerOptions);
+            
+            // Observe table
+            const table = document.querySelector('.referral-table');
+            if (table) {
+                const rows = table.querySelectorAll('tr');
+                rows.forEach(row => {
+                    row.style.opacity = '0';
+                    row.style.transform = 'translateY(20px)';
+                    row.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+                });
+                observer.observe(table);
+            }
+            
+            // Animate level circles on scroll
+            const circleObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const circles = document.querySelectorAll('.level-circle');
+                        circles.forEach((circle, index) => {
+                            setTimeout(() => {
+                                circle.style.opacity = '1';
+                                circle.style.transform = 'scale(1)';
+                            }, index * 300);
+                        });
+                    }
+                });
+            }, { threshold: 0.3 });
+            
+            const flowSection = document.querySelector('.referral-flow');
+            if (flowSection) {
+                const circles = document.querySelectorAll('.level-circle');
+                circles.forEach(circle => {
+                    circle.style.opacity = '0';
+                    circle.style.transform = 'scale(0.5)';
+                    circle.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+                });
+                circleObserver.observe(flowSection);
+            }
+            
+            // Update copyright year
+            const currentYear = new Date().getFullYear();
+            const yearElements = document.querySelectorAll('#currentYear');
+            yearElements.forEach(el => {
+                el.textContent = currentYear;
+            });
+        });
+    </script>
+</body>
+</html>
