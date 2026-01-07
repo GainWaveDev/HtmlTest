@@ -293,7 +293,7 @@
             transition: all 0.3s ease;
         }
         
-        /* FAQ Styling */
+        /* FAQ Styling - FIXED FOR VISIBILITY */
         .faq-container {
             background: white;
             border-radius: 15px;
@@ -307,45 +307,46 @@
             padding-bottom: 20px;
             border-bottom: 1px solid #eee;
             transition: all 0.3s ease;
-            cursor: pointer;
         }
         
         .faq-item:last-child {
             margin-bottom: 0;
             border-bottom: none;
+            padding-bottom: 0;
         }
         
         .faq-item:hover {
+            background-color: #f9f9f9;
             padding-left: 10px;
+            border-radius: 8px;
         }
         
         .faq-question {
             color: #008080;
-            margin-bottom: 10px;
-            font-size: 1.1rem;
+            margin-bottom: 15px;
+            font-size: 1.2rem;
             display: flex;
             align-items: center;
+            font-weight: 600;
         }
         
         .faq-question i {
             margin-right: 10px;
-            font-size: 1.2rem;
+            font-size: 1.3rem;
+            color: #FFD700;
         }
         
         .faq-answer {
-            color: #666;
-            line-height: 1.6;
-            padding-left: 30px;
+            color: #444;
+            line-height: 1.8;
+            padding-left: 35px;
             padding-right: 20px;
-            max-height: 0;
-            overflow: hidden;
-            transition: max-height 0.3s ease, padding 0.3s ease;
-        }
-        
-        .faq-item.active .faq-answer {
-            max-height: 500px;
-            padding-top: 10px;
-            padding-bottom: 10px;
+            font-size: 1.05rem;
+            margin-top: 10px;
+            display: block !important; /* Force display */
+            max-height: none !important; /* Remove height restriction */
+            opacity: 1 !important; /* Force visibility */
+            overflow: visible !important; /* Remove overflow hidden */
         }
         
         .faq-answer strong {
@@ -441,11 +442,12 @@
             }
             
             .faq-question {
-                font-size: 1rem;
+                font-size: 1.1rem;
             }
             
             .faq-answer {
-                padding-left: 20px;
+                padding-left: 25px;
+                font-size: 1rem;
             }
         }
         
@@ -477,6 +479,15 @@
             
             .calc-inputs {
                 grid-template-columns: 1fr;
+            }
+            
+            .faq-question {
+                font-size: 1rem;
+            }
+            
+            .faq-answer {
+                padding-left: 20px;
+                font-size: 0.95rem;
             }
         }
         
@@ -662,7 +673,7 @@
                 </div>
             </div>
             
-            <!-- Account Activation Highlight - UPDATED FOR BETTER VISIBILITY -->
+            <!-- Account Activation Highlight -->
             <div class="activation-highlight" style="
                 background: linear-gradient(135deg, #FFD700 0%, #ffae00 100%);
                 border-left: 6px solid #008080;
@@ -868,22 +879,19 @@
                 </div>
             </div>
             
-            <!-- FAQ Section -->
+            <!-- FAQ Section WITH VISIBLE ANSWERS -->
             <div class="section-title" style="margin-top: 60px;">
                 <h2>Frequently Asked Questions</h2>
             </div>
             
             <div class="faq-container">
-                <div class="faq-item active">
+                <div class="faq-item">
                     <div class="faq-question">
                         <i class="fas fa-question-circle"></i>
                         Q: How to Activate my account?
                     </div>
                     <div class="faq-answer">
-                        <strong>Answer:</strong> Deposit a one-time payment of 30 USDT to your account and 
-                        subscribe to the App. Once activated, you can start your journey to make money 
-                        with Gain Wave App. This activation fee gives you full access to all features 
-                        and the 5-level referral system.
+                        <strong>Answer:</strong> To activate your Gain Wave App account, you need to make a one-time payment of 30 USDT. This activation fee gives you full access to all features including the 5-level referral system, dashboard, and earning tools. Once you deposit 30 USDT and subscribe to the app, your account will be immediately activated and you can start inviting referrals and earning money.
                     </div>
                 </div>
                 
@@ -893,9 +901,7 @@
                         Q: How do I get my referral link?
                     </div>
                     <div class="faq-answer">
-                        <strong>Answer:</strong> After registering and activating your account, you'll find 
-                        your unique referral link in your dashboard. You can share this link with anyone 
-                        to start building your referral network.
+                        <strong>Answer:</strong> After registering and activating your account with 30 USDT, log into your dashboard. You'll find your unique referral link in the "Referral" or "Earn" section. You can copy this link and share it with anyone. When people join using your link and activate their accounts, they become part of your referral network and you start earning commissions.
                     </div>
                 </div>
                 
@@ -905,9 +911,7 @@
                         Q: When do I receive my earnings?
                     </div>
                     <div class="faq-answer">
-                        <strong>Answer:</strong> Earnings are credited instantly to your account as your 
-                        referrals join and activate their accounts. You can withdraw your earnings 
-                        according to our payment schedule, which is typically within 24-48 hours.
+                        <strong>Answer:</strong> Earnings are credited to your account instantly when your referrals activate their accounts. For example, if someone joins using your link and pays their 30 USDT activation fee, you immediately receive 10 USDT as Level A commission. All earnings are visible in real-time in your dashboard. You can withdraw your earnings according to our payment schedule, which processes withdrawals within 24-48 hours.
                     </div>
                 </div>
                 
@@ -917,8 +921,7 @@
                         Q: Is there a limit to how many people I can refer?
                     </div>
                     <div class="faq-answer">
-                        <strong>Answer:</strong> No! You can refer unlimited people and earn from all 
-                        5 levels of your network. The more people you refer, the more you can earn.
+                        <strong>Answer:</strong> No! There is absolutely no limit to how many people you can refer. You can invite unlimited friends, family members, or anyone interested in earning money. The more people you refer, the more you can earn. Remember, you earn from all 5 levels of your network, so even if your direct referrals refer others, you still earn from those deeper levels.
                     </div>
                 </div>
                 
@@ -928,9 +931,19 @@
                         Q: How deep does the referral system go?
                     </div>
                     <div class="faq-answer">
-                        <strong>Answer:</strong> Our system goes 5 levels deep, allowing you to earn from 
-                        a wide network of referrals. You earn from your direct referrals (Level A), 
-                        and then from their referrals up to Level E.
+                        <strong>Answer:</strong> Our referral system goes 5 levels deep. Here's how it works:
+                        <br><br>
+                        <strong>Level A:</strong> Your direct referrals (you earn 10 USDT each)
+                        <br>
+                        <strong>Level B:</strong> People referred by your Level A referrals (you earn 5 USDT each)
+                        <br>
+                        <strong>Level C:</strong> People referred by your Level B referrals (you earn 3 USDT each)
+                        <br>
+                        <strong>Level D:</strong> People referred by your Level C referrals (you earn 1 USDT each)
+                        <br>
+                        <strong>Level E:</strong> People referred by your Level D referrals (you earn 1 USDT each)
+                        <br><br>
+                        This means you can earn from a very wide network of people!
                     </div>
                 </div>
                 
@@ -940,9 +953,71 @@
                         Q: What payment methods are accepted?
                     </div>
                     <div class="faq-answer">
-                        <strong>Answer:</strong> We accept USDT deposits for account activation. You can 
-                        use various cryptocurrency wallets to transfer USDT to your Gain Wave App 
-                        account for activation and subscription.
+                        <strong>Answer:</strong> We accept USDT (Tether) deposits for account activation. You can use various cryptocurrency wallets like Trust Wallet, MetaMask, Binance, or any other wallet that supports USDT transfers. The activation fee is 30 USDT, which is a one-time payment that gives you lifetime access to the platform and earning opportunities.
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <i class="fas fa-question-circle"></i>
+                        Q: How much can I earn from one complete referral chain?
+                    </div>
+                    <div class="faq-answer">
+                        <strong>Answer:</strong> From one complete 5-level referral chain, you can earn up to 20 USDT total. Here's the breakdown:
+                        <br><br>
+                        • Level A: 10 USDT (direct referral)
+                        <br>
+                        • Level B: 5 USDT (referral of your referral)
+                        <br>
+                        • Level C: 3 USDT (next level down)
+                        <br>
+                        • Level D: 1 USDT
+                        <br>
+                        • Level E: 1 USDT
+                        <br><br>
+                        Total: 20 USDT per complete chain. And remember, you can have multiple chains going simultaneously!
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <i class="fas fa-question-circle"></i>
+                        Q: Is there any monthly fee after activation?
+                    </div>
+                    <div class="faq-answer">
+                        <strong>Answer:</strong> No! The 30 USDT activation fee is a one-time payment only. There are no monthly fees, subscription charges, or hidden costs. Once you pay the 30 USDT and activate your account, you have lifetime access to all features and can earn unlimited income through our referral system without any additional payments.
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <i class="fas fa-question-circle"></i>
+                        Q: How do I withdraw my earnings?
+                    </div>
+                    <div class="faq-answer">
+                        <strong>Answer:</strong> Withdrawing your earnings is simple:
+                        <br><br>
+                        1. Log into your Gain Wave App dashboard
+                        <br>
+                        2. Go to the "Withdraw" or "Earnings" section
+                        <br>
+                        3. Enter the amount you want to withdraw
+                        <br>
+                        4. Provide your USDT wallet address
+                        <br>
+                        5. Submit the withdrawal request
+                        <br><br>
+                        Withdrawals are processed within 24-48 hours. There's no minimum withdrawal amount, so you can withdraw any amount you've earned.
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <i class="fas fa-question-circle"></i>
+                        Q: Is Gain Wave App available worldwide?
+                    </div>
+                    <div class="faq-answer">
+                        <strong>Answer:</strong> Yes! Gain Wave App is available worldwide to anyone with internet access. You can join from any country and refer people from anywhere in the world. Our platform supports multiple languages and works 24/7, so you can build your global referral network and earn money from anywhere at any time.
                     </div>
                 </div>
             </div>
@@ -1218,25 +1293,6 @@
                     earningsDisplay.style.transform = 'scale(1)';
                 }, 500);
             }, 1000);
-            
-            // ==================== FAQ ACCORDION ====================
-            const faqItems = document.querySelectorAll('.faq-item');
-            faqItems.forEach((item, index) => {
-                const question = item.querySelector('.faq-question');
-                const answer = item.querySelector('.faq-answer');
-                
-                question.addEventListener('click', function() {
-                    // Close all other FAQ items
-                    faqItems.forEach(otherItem => {
-                        if (otherItem !== item) {
-                            otherItem.classList.remove('active');
-                        }
-                    });
-                    
-                    // Toggle current item
-                    item.classList.toggle('active');
-                });
-            });
             
             // ==================== ANIMATIONS ====================
             // Animate table rows on scroll
