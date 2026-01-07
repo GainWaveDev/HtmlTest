@@ -19,7 +19,11 @@
         }
     </style>
 </head>
-<body>
+<body>    <!-- Loading Spinner -->
+    <div id="loading-spinner">
+        <div class="spinner"></div>
+    </div>
+    
     
     <!-- Header -->
     <header>
@@ -32,11 +36,8 @@
                 <ul id="navMenu">
                     <li><a href="index.html">Home</a></li>
                     <li><a href="about.html">About Us</a></li>
-                    <li><a href="contact.html">Contact Us</a></li>
-                    <li><a href="referals.html">Referral System</a></li>
                     <li><a href="https://whatsapp.com/channel/0029VbBnprPH5JLyxGDV0N0b" target="_blank" rel="noopener">Channel</a></li>
                     <li><a href="https://web.gainwaveapp.com/auth/register?ref=WPM8R" target="_blank" rel="noopener">Create Account</a></li>
-                    <li><a href="https://web.gainwaveapp.com/auth/login" target="_blank" rel="noopener">Login</a></li>
                 </ul>
             </nav>
         </div>
@@ -134,25 +135,26 @@
     <!-- Footer -->
     <footer>
         <div class="container footer-content">
-            <div>
+           <div>
                 <h3>Gain Wave App</h3>
                 <p>Earn Through Referrals</p>
+                <p style="font-size: 0.9rem; margin-top: 10px; opacity: 0.8;">
+                    <i class="fas fa-lock"></i> Secure Platform<br>
+                    <i class="fas fa-bolt"></i> Instant Payments<br>
+                    <i class="fas fa-globe"></i> Worldwide
+                </p>
             </div>
             <div>
-                <h3>Follow Us</h3>
-                <div class="social-icons">
-                    <a href="https://www.youtube.com/@Gain_Wave" target="_blank" rel="noopener noreferrer" aria-label="YouTube">
-                        <i class="fab fa-youtube"></i>
-                    </a>
-                    <a href="https://www.instagram.com/gain.wave_ltd/" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
-                        <i class="fab fa-instagram"></i>
-                    </a>
-                    <a href="https://x.com/Gain_Wave" target="_blank" rel="noopener noreferrer" aria-label="Twitter">
-                        <i class="fab fa-twitter"></i>
-                    </a>
-                </div>
+                <h3>Quick Links</h3>
+                <ul style="list-style: none; padding: 0; margin-top: 10px;">
+                    <li style="margin-bottom: 8px;"><a href="index.html" style="color: white; text-decoration: none; opacity: 0.8; transition: opacity 0.3s;">Home</a></li>
+                    <li style="margin-bottom: 8px;"><a href="about.html" style="color: white; text-decoration: none; opacity: 0.8; transition: opacity 0.3s;">About Us</a></li>
+                    <li style="margin-bottom: 8px;"><a href="referals.html" style="color: white; text-decoration: none; opacity: 0.8; transition: opacity 0.3s;">Referral System</a></li>
+                    <li style="margin-bottom: 8px;"><a href="contact.html" style="color: white; text-decoration: none; opacity: 0.8; transition: opacity 0.3s;">Contact Us</a></li>
+                    <li style="margin-bottom: 8px;"><a href="calculator.html" style="color: white; text-decoration: none; opacity: 0.8; transition: opacity 0.3s;">Calculator</a></li>                    <li>
+                </ul>
             </div>
-        </div>
+            <div>
         <div class="copyright">
             © <span id="currentYear">2025</span> Gain Wave App. All rights reserved.
         </div>
