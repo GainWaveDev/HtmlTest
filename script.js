@@ -21,6 +21,12 @@ document.addEventListener('DOMContentLoaded', function() {
   
   // Initialize lazy loading
   initLazyLoading();
+  
+  // Initialize FAQ functionality if exists
+  initFAQ();
+  
+  // Initialize calculator if exists
+  initCalculator();
 });
 
 function initMobileMenu() {
@@ -74,11 +80,20 @@ function initVideoControls() {
   const muteBtn = document.querySelector('.mute-btn');
   
   if (video && muteBtn) {
+    // Ensure video is muted by default
+    video.muted = true;
+    
     muteBtn.addEventListener('click', function() {
       video.muted = !video.muted;
       const icon = muteBtn.querySelector('i');
       if (icon) {
-        icon.className = video.muted ? 'fas fa-volume-mute' : 'fas fa-volume-up';
+        if (video.muted) {
+          icon.className = 'fas fa-volume-mute';
+          icon.setAttribute('aria-label', 'Unmute video');
+        } else {
+          icon.className = 'fas fa-volume-up';
+          icon.setAttribute('aria-label', 'Mute video');
+        }
       }
     });
     
@@ -89,6 +104,9 @@ function initVideoControls() {
         video.muted = !video.muted;
       }
     });
+    
+    // Add aria-label for accessibility
+    muteBtn.setAttribute('aria-label', video.muted ? 'Unmute video' : 'Mute video');
   }
 }
 
@@ -102,31 +120,40 @@ function initForms() {
       // Basic form validation
       const name = this.querySelector('input[type="text"]');
       const email = this.querySelector('input[type="email"]');
+      const subject = this.querySelector('input[type="text"]');
       const message = this.querySelector('textarea');
       const submitBtn = this.querySelector('button[type="submit"]');
       
       let isValid = true;
       
       // Reset error states
-      [name, email, message].forEach(input => {
-        input.style.borderColor = '#e0e0e0';
+      [name, email, subject, message].forEach(input => {
+        if (input) {
+          input.style.borderColor = '#e0e0e0';
+        }
       });
       
       // Validate name
-      if (!name.value.trim()) {
+      if (name && !name.value.trim()) {
         name.style.borderColor = '#ff4444';
         isValid = false;
       }
       
       // Validate email
       const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-      if (!email.value.trim() || !emailRegex.test(email.value)) {
+      if (email && (!email.value.trim() || !emailRegex.test(email.value))) {
         email.style.borderColor = '#ff4444';
         isValid = false;
       }
       
+      // Validate subject
+      if (subject && !subject.value.trim()) {
+        subject.style.borderColor = '#ff4444';
+        isValid = false;
+      }
+      
       // Validate message
-      if (!message.value.trim()) {
+      if (message && !message.value.trim()) {
         message.style.borderColor = '#ff4444';
         isValid = false;
       }
@@ -173,7 +200,7 @@ function initScrollAnimations() {
         entry.target.classList.add('animated');
         
         // Animate child elements with delay
-        const animatedElements = entry.target.querySelectorAll('.about-card, .feature-card, .value-box, .contact-item');
+        const animatedElements = entry.target.querySelectorAll('.about-card, .feature-card, .value-box, .contact-item, .step-card');
         animatedElements.forEach((el, index) => {
           setTimeout(() => {
             el.style.opacity = '1';
@@ -219,6 +246,11 @@ function updateCopyrightYear() {
     if (element.textContent.includes('2025')) {
       element.textContent = element.textContent.replace('2025', currentYear);
     }
+    // Also update any other year placeholders
+    const yearSpan = element.querySelector('#currentYear');
+    if (yearSpan) {
+      yearSpan.textContent = currentYear;
+    }
   });
 }
 
@@ -253,13 +285,240 @@ function initLazyLoading() {
   }
 }
 
+function initFAQ() {
+  const faqItems = document.querySelectorAll('.faq-item');
+  if (faqItems.length > 0) {
+    faqItems.forEach(item => {
+      const question = item.querySelector('.faq-question');
+      if (question) {
+        question.addEventListener('click', () => {
+          // Toggle current item
+          const isActive = item.classList.contains('active');
+          
+          // Close all items
+          faqItems.forEach(otherItem => {
+            otherItem.classList.remove('active');
+          });
+          
+          // Open current item if it wasn't active
+          if (!isActive) {
+            item.classList.add('active');
+          }
+        });
+      }
+    });
+  }
+}
+
+function initCalculator() {
+  const calculatorInputs = document.querySelectorAll('.calc-input input');
+  if (calculatorInputs.length > 0) {
+    function calculateEarnings() {
+      const levelA = parseInt(document.getElementById('levelA')?.value) || 0;
+      const levelB = parseInt(document.getElementById('levelB')?.value) || 0;
+      const levelC = parseInt(document.getElementById('levelC')?.value) || 0;
+      const levelD = parseInt(document.getElementById('levelD')?.value) || 0;
+      const levelE = parseInt(document.getElementById('levelE')?.value) || 0;
+      
+      // Commission rates
+      const rateA = 10; // USDT per referral
+      const rateB = 5;
+      const rateC = 3;
+      const rateD = 1;
+      const rateE = 1;
+      
+      // Calculate earnings
+      const earningsA = levelA * rateA;
+      const earningsB = levelB * rateB;
+      const earningsC = levelC * rateC;
+      const earningsD = levelD * rateD;
+      const earningsE = levelE * rateE;
+      const totalEarnings = earningsA + earningsB + earningsC + earningsD + earningsE;
+      
+      // Update display if elements exist
+      const estimatedEarnings = document.getElementById('estimatedEarnings');
+      if (estimatedEarnings) {
+        estimatedEarnings.textContent = totalEarnings.toLocaleString() + ' USDT';
+        
+        // Animate the total earnings
+        estimatedEarnings.style.transform = 'scale(1.1)';
+        setTimeout(() => {
+          estimatedEarnings.style.transform = 'scale(1)';
+        }, 300);
+      }
+      
+      // Update level earnings
+      const levelAEarnings = document.getElementById('levelAEarnings');
+      const levelBEarnings = document.getElementById('levelBEarnings');
+      const levelCEarnings = document.getElementById('levelCEarnings');
+      const levelDEEarnings = document.getElementById('levelDEEarnings');
+      
+      if (levelAEarnings) levelAEarnings.textContent = earningsA.toLocaleString() + ' USDT';
+      if (levelBEarnings) levelBEarnings.textContent = earningsB.toLocaleString() + ' USDT';
+      if (levelCEarnings) levelCEarnings.textContent = earningsC.toLocaleString() + ' USDT';
+      if (levelDEEarnings) levelDEEarnings.textContent = (earningsD + earningsE).toLocaleString() + ' USDT';
+    }
+    
+    // Initialize calculator with default values
+    calculateEarnings();
+    
+    // Add event listeners to inputs
+    calculatorInputs.forEach(input => {
+      input.addEventListener('input', calculateEarnings);
+      input.addEventListener('change', calculateEarnings);
+    });
+    
+    // Create preset buttons if container exists
+    const presetButtonsContainer = document.getElementById('presetButtons');
+    if (presetButtonsContainer) {
+      const presets = [
+        { name: 'Beginner', A: 5, B: 25, C: 125, D: 625, E: 3125 },
+        { name: 'Intermediate', A: 10, B: 50, C: 250, D: 1250, E: 6250 },
+        { name: 'Advanced', A: 25, B: 125, C: 625, D: 3125, E: 15625 },
+        { name: 'Expert', A: 50, B: 250, C: 1250, D: 6250, E: 31250 }
+      ];
+      
+      presets.forEach(preset => {
+        const button = document.createElement('button');
+        button.className = 'preset-btn';
+        button.textContent = preset.name;
+        button.onclick = () => {
+          document.getElementById('levelA').value = preset.A;
+          document.getElementById('levelB').value = preset.B;
+          document.getElementById('levelC').value = preset.C;
+          document.getElementById('levelD').value = preset.D;
+          document.getElementById('levelE').value = preset.E;
+          calculateEarnings();
+        };
+        presetButtonsContainer.appendChild(button);
+      });
+    }
+  }
+}
+
 // Add loading animation for page transitions
 window.addEventListener('load', function() {
   document.body.classList.add('loaded');
   
-  // Remove loading spinner if exists
+  // Remove loading spinner
   const loadingSpinner = document.getElementById('loading-spinner');
   if (loadingSpinner) {
-    loadingSpinner.style.display = 'none';
+    setTimeout(() => {
+      loadingSpinner.style.opacity = '0';
+      setTimeout(() => {
+        loadingSpinner.style.display = 'none';
+      }, 300);
+    }, 500);
   }
+  
+  // Initialize any page-specific animations
+  initPageSpecificAnimations();
 });
+
+function initPageSpecificAnimations() {
+  // Animate table rows on scroll for index.html
+  const observerOptions = {
+    threshold: 0.2,
+    rootMargin: '0px 0px -50px 0px'
+  };
+  
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const rows = entry.target.querySelectorAll('tr');
+        rows.forEach((row, index) => {
+          setTimeout(() => {
+            row.style.opacity = '1';
+            row.style.transform = 'translateY(0)';
+          }, index * 200);
+        });
+      }
+    });
+  }, observerOptions);
+  
+  // Observe table in index.html
+  const table = document.querySelector('.referral-table');
+  if (table) {
+    const rows = table.querySelectorAll('tr');
+    rows.forEach(row => {
+      row.style.opacity = '0';
+      row.style.transform = 'translateY(20px)';
+      row.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+    });
+    observer.observe(table);
+  }
+  
+  // Animate level circles on scroll
+  const circleObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const circles = document.querySelectorAll('.level-circle');
+        circles.forEach((circle, index) => {
+          setTimeout(() => {
+            circle.style.opacity = '1';
+            circle.style.transform = 'scale(1)';
+          }, index * 300);
+        });
+      }
+    });
+  }, { threshold: 0.3 });
+  
+  const flowSection = document.querySelector('.referral-flow');
+  if (flowSection) {
+    const circles = document.querySelectorAll('.level-circle');
+    circles.forEach(circle => {
+      circle.style.opacity = '0';
+      circle.style.transform = 'scale(0.5)';
+      circle.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+    });
+    circleObserver.observe(flowSection);
+  }
+  
+  // Animate feature cards
+  const featureObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const cards = entry.target.querySelectorAll('.feature-card');
+        cards.forEach((card, index) => {
+          setTimeout(() => {
+            card.style.opacity = '1';
+            card.style.transform = 'translateY(0)';
+          }, index * 300);
+        });
+      }
+    });
+  }, { threshold: 0.2 });
+  
+  const featuresSection = document.querySelector('.features-grid');
+  if (featuresSection) {
+    const cards = featuresSection.querySelectorAll('.feature-card');
+    cards.forEach(card => {
+      card.style.opacity = '0';
+      card.style.transform = 'translateY(30px)';
+      card.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+    });
+    featureObserver.observe(featuresSection);
+  }
+}
+
+// Touch device improvements
+if ('ontouchstart' in window) {
+  document.addEventListener('DOMContentLoaded', function() {
+    // Add touch feedback for buttons
+    const buttons = document.querySelectorAll('button, .cta-btn, nav a, .preset-btn, .mute-btn');
+    buttons.forEach(btn => {
+      btn.addEventListener('touchstart', function() {
+        this.style.opacity = '0.8';
+      });
+      btn.addEventListener('touchend', function() {
+        this.style.opacity = '1';
+      });
+      btn.addEventListener('touchcancel', function() {
+        this.style.opacity = '1';
+      });
+    });
+    
+    // Improve scrolling performance
+    document.documentElement.style.setProperty('--webkit-overflow-scrolling', 'touch');
+  });
+}
